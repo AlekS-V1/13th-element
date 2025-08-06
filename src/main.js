@@ -1,0 +1,9 @@
+import './js/header';
+import './js/hero';
+import './js/furniture';
+import './js/furniture_details_modal';
+import './js/order_modal';
+import './js/about_us';
+import './js/faq_section';
+import './js/feedback_section';
+import './js/footer';
