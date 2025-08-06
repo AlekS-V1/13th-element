@@ -1,4 +1,7 @@
 /* Styles for Mobile devices */
+section {
+  padding: 48px 0;
+}
 .container {
   min-width: 320px;
   max-width: 375px;
@@ -7,6 +10,9 @@
 }
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
+  section {
+    padding: 32 0;
+  }
   .container {
     max-width: 768px;
     padding: 0 32px;
@@ -14,6 +20,9 @@
 }
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
+  section {
+    padding: 64 0;
+  }
   .container {
     max-width: 1440px;
     padding: 0 64px;
