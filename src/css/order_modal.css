@@ -194,4 +194,7 @@ margin: 0 auto 48px auto;
 .form-textarea {
   width: 738px;
 }
+.submit-btn {
+  width: 196px;
+}
 }
