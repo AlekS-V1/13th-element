@@ -1,0 +1,39 @@
+ <!-- МОДАЛЬНЕ ВІКНО -->
+    <div class="modal-backdrop " id="orderModalBackdrop">
+      <div class="modal" id="orderModal">
+ <button class="modal-close" id="orderModalCloseBtn" type="button" aria-label="Закрити модальне вікно">
+        <svg class="modal-close-icon" height="32" width="32">
+            <use class="modal-close-svg" href="../img/sprite.svg#x"></use>
+        </svg>
+      </button>
+        <h2 class="modal-title">Замовити зворотний зв’язок</h2>
+        <form class="order-form" id="orderForm" autocomplete="off">
+          <label class="form-label">
+            Email*
+            <input
+              class="form-input"
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+              required
+              autofocus
+            />
+          </label>
+          <label class="form-label">
+            Телефон*
+            <input
+              class="form-input"
+              type="tel"
+              name="tel"
+              placeholder="+380 (099) 123 22 11"
+              required
+            />
+          </label>
+          <label class="form-label">
+            Коментар
+            <textarea class="form-textarea" name="comment" rows="6" placeholder="Type your message..."></textarea>
+          </label>
+          <button class="submit-btn" type="submit">Надіслати заявку</button>
+        </form>
+      </div>
+    </div>
