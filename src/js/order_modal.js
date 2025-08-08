@@ -1,4 +1,4 @@
-const openModalBtn = document.getElementById('openModalBtn');
+const openModalBtn = document.getElementById('openModalBtn'); // button name to change accoding product modal
 const backdrop = document.getElementById('orderModalBackdrop');
 const closeBtn = document.getElementById('orderModalCloseBtn');
 const form = document.getElementById('orderForm');
