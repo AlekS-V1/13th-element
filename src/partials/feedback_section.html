@@ -1,3 +1,39 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css-star-rating/css/star-rating.min.css">
+
 <section class="feedback-section" id="feedback-section">
-  <div class="container">feedback section</div>
+  <div class="container">
+
+    <div class="feedback-title-wrap">
+      <h2 class="feedback-title feedback-text">Відгуки клієнтів</h2>
+      <p class="feedback-text feedback-description">Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.</p>
+    </div>
+
+    <!-- Картотека -->
+    <div class="swiper">
+      <div class="feedback-list swiper-wrapper"></div>
+    </div>
+
+    <!-- Лоадер -->
+    <div id="loader" class="loader hidden">
+      <span class="loader-circle"></span>
+    </div>
+
+    <div class="feedback-pagination-btn-wrap hidden">
+      <div class="swiper-pagination"></div>
+      <div class="feedback-navigation-wrap">
+        <button class="feedback-nav-btn feedback-btn-left" type="button">
+          <svg class="feedback-btn-icon" width="24" height="23">
+            <use href="../img/sprite.svg#left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button class="feedback-nav-btn feedback-btn-right" type="button">
+          <svg class="feedback-btn-icon" width="24" height="23">
+            <use href="../img/sprite.svg#right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
 </section>
