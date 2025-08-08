@@ -1,22 +1,32 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/css-star-rating/css/star-rating.min.css">
+<!-- це я намагаюся підключити зірочки, але не виходить, пробувала додати в maim.html, але теж не допомогло-->
+<!-- 
+<link rel="stylesheet" href="/node_modules/css-star-rating/css/star-rating.min.css" />
+<script src="/node_modules/css-star-rating/js/star-rating.min.js"></script> -->
+
 
 <section class="feedback-section" id="feedback-section">
   <div class="container">
 
+    <!-- Заголовок і опис -->
+
     <div class="feedback-title-wrap">
-      <h2 class="feedback-title feedback-text">Відгуки клієнтів</h2>
+      <h2 class="feedback-text feedback-title">Відгуки клієнтів</h2>
       <p class="feedback-text feedback-description">Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.</p>
     </div>
 
     <!-- Картотека -->
+
     <div class="swiper">
       <div class="feedback-list swiper-wrapper"></div>
     </div>
 
     <!-- Лоадер -->
-    <div id="loader" class="loader hidden">
+
+    <div id="feedback-loader" class="loader hidden">
       <span class="loader-circle"></span>
     </div>
+
+    <!-- Пагінація та кнопки вперед-назад -->
 
     <div class="feedback-pagination-btn-wrap hidden">
       <div class="swiper-pagination"></div>

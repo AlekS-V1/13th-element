@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Меблерія</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <!--  -->
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/hero.html" />
-      <!--  -->
-      <load src="./partials/furniture.html" />
-      <!--  -->
-      <load src="./partials/about_us.html" />
-      <!--  -->
-      <load src="./partials/faq_section.html" />
-      <!--  -->
-      <load src="./partials/feedback_section.html" />
-      <!--  -->
-      <load src="./partials/furniture_details_modal.html" />
-      <!--  -->
-      <load src="./partials/order_modal.html" />
-    </main>
-    <!--  -->
-    <load src="./partials/footer.html" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Меблерія</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script type="module" src="./main.js"></script>
-  </body>
+  <!-- Підключаємо стилі бібліотеки css-star-rating -->
+  <link rel="stylesheet" href="./node_modules/css-star-rating/dist/css/star-rating.min.css" />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <!--  -->
+  <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+
+  <main>
+    <!-- Loads the specified .html file -->
+    <load src="./partials/hero.html" />
+    <!--  -->
+    <load src="./partials/furniture.html" />
+    <!--  -->
+    <load src="./partials/about_us.html" />
+    <!--  -->
+    <load src="./partials/faq_section.html" />
+    <!--  -->
+    <load src="./partials/feedback_section.html" />
+    <!--  -->
+    <load src="./partials/furniture_details_modal.html" />
+    <!--  -->
+    <load src="./partials/order_modal.html" />
+  </main>
+  <!--  -->
+  <load src="./partials/footer.html" />
+
+  <script type="module" src="./main.js"></script>
+</body>
+
 </html>

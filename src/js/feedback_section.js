@@ -1,14 +1,18 @@
 import axios from 'axios';
+
 import 'loaders.css/loaders.min.css';
 
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+
+// це теж намагаюся підключити зірочки, але не виходить
+
+import 'css-star-rating/css/star-rating.min.css';
 
 // === DOM Elements ===
 const feedbackContainer = document.querySelector('.feedback-list');
@@ -20,9 +24,6 @@ const navWrap = document.querySelector('.feedback-pagination-btn-wrap');
 // === Global state ===
 let swiper;
 let eventsBound = false;
-
-// leftButton.disabled = true;
-// rightButton.disabled = true;
 
 // === API ===
 async function getFeedback() {
@@ -69,11 +70,18 @@ function customRound(rate) {
 function createMarkup(arr) {
   return arr
     .map(({ descr, name, rate }) => {
-      const roundedRate = customRound(rate);
+      const roundedRate = customRound(rate); // наприклад, 3.5
+      const full = Math.floor(roundedRate);
+      const hasHalf = roundedRate % 1 !== 0;
+      const valueClass = `value-${full}`;
+      const halfClass = hasHalf ? 'half' : '';
+
       return `
         <div class="feedback-card swiper-slide">
-          <div class="star-rating" data-rating="${roundedRate}"></div>
-          <p class="feedback-text feedback-opinion">"${descr}"</p>
+        <div class="rating rating-static rating-small ${valueClass} ${halfClass} star-icon">
+          <div class="star-container"></div>
+        </div>
+        <p class="feedback-text feedback-opinion">"${descr}"</p>
           <p class="feedback-text feedback-user">${name}</p>
         </div>
       `;
@@ -99,6 +107,7 @@ async function renderFeedback() {
         direction: 'horizontal',
         loop: false,
         slidesPerView: 1,
+        slidesPerGroup: 1,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -107,9 +116,11 @@ async function renderFeedback() {
         breakpoints: {
           768: {
             slidesPerView: 2,
+            slidesPerGroup: 1,
           },
           1440: {
             slidesPerView: 3,
+            slidesPerGroup: 1,
           },
         },
         on: {
