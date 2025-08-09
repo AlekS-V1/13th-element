@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/13th-element/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Меблерія</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script type="module" crossorigin src="/13th-element/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/13th-element/assets/vendor-CYc3EYgO.js">
-    <link rel="stylesheet" crossorigin href="/13th-element/assets/vendor-BpWLbQcC.css">
-    <link rel="stylesheet" crossorigin href="/13th-element/assets/index-DH6hYEq0.css">
-  </head>
-  <body>
-    <!--  -->
-    <header class="header">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/13th-element/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Меблерія</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Підключаємо стилі бібліотеки css-star-rating -->
+  <link rel="stylesheet" href="./node_modules/css-star-rating/dist/css/star-rating.min.css" />
+
+  <script type="module" crossorigin src="/13th-element/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/13th-element/assets/vendor-Cxast_l0.js">
+  <link rel="stylesheet" crossorigin href="/13th-element/assets/vendor-CmrqTmmq.css">
+  <link rel="stylesheet" crossorigin href="/13th-element/assets/index-BoG8vnAL.css">
+</head>
+
+<body>
+  <!--  -->
+  <header class="header">
   <div class="container">
     <nav class="nav">header</nav>
   </div>
 </header>
 
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <section class="hero" id="hero">
+  <main>
+    <!-- Loads the specified .html file -->
+    <section class="hero" id="hero">
   <div class="container">
     <div class="hero-text">
       <h1 class="hero-title">Створіть свій ідеальний дім</h1>
@@ -47,19 +48,16 @@
     </div>
   </div>
 </section>
-
-      <!--  -->
-      <section class="furniture-list" id="furniture">
+    <!--  -->
+    <section class="furniture-list" id="furniture">
   <div class="container">furniture</div>
 </section>
-
-      <!--  -->
-      <section class="about-us" id="about-us">
+    <!--  -->
+    <section class="about-us" id="about-us">
   <div class="container">about-us</div>
 </section>
-
-      <!--  -->
-       
+    <!--  -->
+     
 <section class="faq-section" id="faq_section">
     <div class="container">
       <h2 class="faq-header">Часті питання</h2>
@@ -142,19 +140,55 @@
       </div>
     </div>
   </section>
- 
+    <!--  -->
+    <section class="feedback-section" id="feedback-section">
+  <div class="container">
 
+    <!-- Заголовок і опис -->
 
-      <!--  -->
-      <section class="feedback-section" id="feedback-section">
-  <div class="container">feedback section</div>
+    <div class="feedback-title-wrap">
+      <h2 class="feedback-text feedback-title">Відгуки клієнтів</h2>
+      <p class="feedback-text feedback-description">Дізнайтеся, що кажуть наші задоволені клієнти про наші меблі.</p>
+    </div>
+
+    <!-- Картотека -->
+
+    <div class="swiper">
+      <div class="feedback-list swiper-wrapper"></div>
+    </div>
+
+    <!-- Лоадер -->
+
+    <div id="feedback-loader" class="loader hidden">
+      <span class="loader-circle"></span>
+    </div>
+
+    <!-- Пагінація та кнопки вперед-назад -->
+
+    <div class="feedback-pagination-btn-wrap hidden">
+      <div class="swiper-pagination"></div>
+      <div class="feedback-navigation-wrap">
+        <button class="feedback-nav-btn feedback-btn-left" type="button">
+          <svg class="feedback-btn-icon" width="24" height="23">
+            <use href="../img/sprite.svg#left-arrow-alt"></use>
+          </svg>
+        </button>
+
+        <button class="feedback-nav-btn feedback-btn-right" type="button">
+          <svg class="feedback-btn-icon" width="24" height="23">
+            <use href="../img/sprite.svg#right-arrow-alt"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
 </section>
+    <!--  -->
+    
 
-      <!--  -->
-      
-
-      <!--  -->
-       <!-- МОДАЛЬНЕ ВІКНО -->
+    <!--  -->
+     <!-- МОДАЛЬНЕ ВІКНО -->
     <div class="modal-backdrop is-hidden" id="orderModalBackdrop">
       <div class="modal" id="orderModal">
  <button class="modal-close" id="orderModalCloseBtn" type="button" aria-label="Закрити модальне вікно">
@@ -194,12 +228,12 @@
       </div>
     </div>
 
-    </main>
-    <!--  -->
-    <footer class="footer">
+  </main>
+  <!--  -->
+  <footer class="footer">
   <div class="container">Footer</div>
 </footer>
 
+</body>
 
-  </body>
 </html>
