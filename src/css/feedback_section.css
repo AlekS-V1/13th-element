@@ -1,8 +1,5 @@
 /* -----------------GENERAL------------------- */
 
-.feedback-section .container {
-    margin: 0;
-}
 
 .feedback-section .hidden {
     display: none !important;
