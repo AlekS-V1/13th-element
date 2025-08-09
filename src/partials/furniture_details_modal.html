@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Меблевий магазин</title>
+    <link rel="stylesheet" href="css/furniture_details_modal.css" />
+  </head>
+  <body onload="fetchFurnitureAndRenderModal()">
+    <div class="modal-overlay" id="modal">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
 
+        <div class="image-gallery">
+          <img src="" alt="" class="main-image" />
+          <div class="thumbs"></div>
+        </div>
+
+        <div class="modal-details">
+          <h2 class="model-name"></h2>
+          <p class="category"></p>
+          <p class="price"></p>
+          <div class="rating"></div>
+
+          <div class="colors">Колір</div>
+          <div class="label-input">
+            <label><input class="grey" type="checkbox" checked /></label>
+            <label><input class="white" type="checkbox" /></label>
+          </div>
+
+          <p class="description"></p>
+          <p class="dimensions"></p>
+
+          <button class="order-btn" onclick="openOrderForm()">
+            Перейти до замовлення
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/furniture_details_modal.js"></script>
+  </body>
+</html>
