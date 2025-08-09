@@ -1,43 +1,58 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import 'loaders.css/loaders.min.css';
 
-const backdrop = document.getElementById('orderModalBackdrop');
-const closeBtn = document.getElementById('orderModalCloseBtn');
-const orderForm = document.getElementById('orderForm');
+const backdrop = document.getElementById('orderModalBackdrop');  // Фон модального вікна
+const closeBtn = document.getElementById('orderModalCloseBtn');  // Кнопка закриття модалки
+const orderForm = document.getElementById('orderForm');          // Форма замовлення
 
-let modelId = null;
-const COLOR = '#1212ca';
+let modelId = null;              
+const COLOR = '#1212ca';          
 
+const loader = document.getElementById('loader'); // лоадер
+
+// Відкрити форму замовлення з id моделі
 function openOrderFormWithModel(id) {
-  modelId = id;
+  modelId = id;                   
 
-  backdrop.classList.remove('is-hidden');
-  document.body.classList.add('no-scroll');
-  orderForm.reset();
-  clearAllErrors();
-  orderForm.elements.email.focus();
+  backdrop.classList.remove('is-hidden'); 
+  document.body.classList.add('no-scroll'); 
+  orderForm.reset();                      
+  clearAllErrors();                     
+  orderForm.elements.email.focus();     
 }
 
-// Закрити модалку
-
+// Закрити модальне вікно
 function closeOrderModal() {
-  backdrop.classList.add('is-hidden');
-  document.body.classList.remove('no-scroll');
-  orderForm.reset();
-  clearAllErrors();
+  backdrop.classList.add('is-hidden');    
+  document.body.classList.remove('no-scroll');  
+  orderForm.reset();                       
+  clearAllErrors();                       
 }
 
 closeBtn.addEventListener('click', closeOrderModal);
 
+// Закриття модалки при кліку поза формою
 backdrop.addEventListener('click', e => {
   if (e.target === backdrop) closeOrderModal();
 });
 
+// Закриття модалки при натисканні Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && !backdrop.classList.contains('is-hidden')) {
     closeOrderModal();
   }
 });
-// Обробка форми
 
+function showLoader() {
+  loader.classList.remove('hidden');
+}
+
+function hideLoader() {
+  loader.classList.add('hidden');
+}
+
+// Обробка відправки форми
 orderForm.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -51,8 +66,7 @@ orderForm.addEventListener('submit', async e => {
 
   clearAllErrors();
 
-
-let hasError = false;
+  let hasError = false;
 
   if (!email) {
     showError(emailInput, 'Поле Email обов’язкове');
@@ -73,6 +87,8 @@ let hasError = false;
     return;
   }
 
+  showLoader();
+
   const requestBody = {
     email,
     phone,
@@ -87,7 +103,18 @@ let hasError = false;
   submitBtn.style.cursor = 'wait';
 
   try {
-    await axios.post('https://furniture-store.b.goit.study/api/orders', requestBody);
+    const response = await fetch('https://furniture-store.b.goit.study/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Не вдалося надіслати заявку');
+    }
 
     iziToast.success({
       title: 'Готово',
@@ -99,18 +126,18 @@ let hasError = false;
   } catch (err) {
     iziToast.error({
       title: 'Помилка',
-      message: err.response?.data?.message || 'Не вдалося надіслати заявку',
+      message: err.message,
       position: 'topRight',
     });
   } finally {
+    hideLoader();
     submitBtn.disabled = false;
     submitBtn.textContent = 'Надіслати заявку';
     submitBtn.style.cursor = 'pointer';
   }
 });
 
-
-// Функції для помилок 
+// Показати помилку під полем
 function showError(input, message) {
   input.classList.add('input-error');
 
