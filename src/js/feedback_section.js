@@ -77,13 +77,13 @@ function createStarRating(rate) {
           () => `
           <div class="star">
             <svg class="star-empty">
-              <use xlink:href="./img/feedback/star-rating_icons.svg#star-empty"></use>
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
-              <use xlink:href="./img/feedback/star-rating_icons.svg#star-half"></use>
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-              <use xlink:href="./img/feedback/star-rating_icons.svg#star-filled"></use>
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-filled"></use>
             </svg>
           </div>
         `
