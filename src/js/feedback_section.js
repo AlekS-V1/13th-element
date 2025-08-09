@@ -10,8 +10,6 @@ import 'swiper/css/pagination';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// це теж намагаюся підключити зірочки, але не виходить
-
 import 'css-star-rating/css/star-rating.min.css';
 
 // === DOM Elements ===
@@ -62,30 +60,52 @@ function updateNavButtons() {
   rightButton.disabled = isLast;
 }
 
-function customRound(rate) {
-  return Math.round(rate * 2) / 2;
+// === Create Star Rating ===
+
+function createStarRating(rate) {
+  const roundedRate = Math.round(rate * 2) / 2;
+  const fullStars = Math.floor(roundedRate);
+  const hasHalf = roundedRate % 1 !== 0;
+
+  return `
+    <div class="rating rating-static rating-small value-${fullStars} ${
+    hasHalf ? 'half' : ''
+  } star-icon">
+      <div class="star-container">
+        ${Array.from(
+          { length: 5 },
+          () => `
+          <div class="star">
+            <svg class="star-empty">
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-empty"></use>
+            </svg>
+            <svg class="star-half">
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-half"></use>
+            </svg>
+            <svg class="star-filled">
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-filled"></use>
+            </svg>
+          </div>
+        `
+        ).join('')}
+      </div>
+    </div>
+  `;
 }
 
 // === Create HTML Markup ===
-function createMarkup(arr) {
-  return arr
-    .map(({ descr, name, rate }) => {
-      const roundedRate = customRound(rate); // наприклад, 3.5
-      const full = Math.floor(roundedRate);
-      const hasHalf = roundedRate % 1 !== 0;
-      const valueClass = `value-${full}`;
-      const halfClass = hasHalf ? 'half' : '';
 
-      return `
-        <div class="feedback-card swiper-slide">
-        <div class="rating rating-static rating-small ${valueClass} ${halfClass} star-icon">
-          <div class="star-container"></div>
-        </div>
+function createFeedbackMarkup(arr) {
+  return arr
+    .map(
+      ({ descr, name, rate }) => `
+      <div class="feedback-card swiper-slide">
+        ${createStarRating(rate)}
         <p class="feedback-text feedback-opinion">"${descr}"</p>
-          <p class="feedback-text feedback-user">${name}</p>
-        </div>
-      `;
-    })
+        <p class="feedback-text feedback-user">${name}</p>
+      </div>
+    `
+    )
     .join('');
 }
 
@@ -95,7 +115,7 @@ async function renderFeedback() {
 
   try {
     const data = await getFeedback();
-    const markup = createMarkup(data.feedbacks);
+    const markup = createFeedbackMarkup(data.feedbacks);
 
     feedbackContainer.insertAdjacentHTML('beforeend', markup);
 
