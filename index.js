@@ -4,13 +4,13 @@ import{i as u,A as B,S as C,P as x,a as A}from"./assets/vendor-Cxast_l0.js";(fun
         ${Array.from({length:5},()=>`
           <div class="star">
             <svg class="star-empty">
-              <use xlink:href="./img/feedback/star-rating.icons.svg#star-empty"></use>
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
-              <use xlink:href="./img/feedback/star-rating.icons.svg#star-half"></use>
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-half"></use>
             </svg>
             <svg class="star-filled">
-              <use xlink:href="./img/feedback/star-rating.icons.svg#star-filled"></use>
+              <use xlink:href="../img/feedback/star-rating.icons.svg#star-filled"></use>
             </svg>
           </div>
         `).join("")}
