@@ -6,6 +6,11 @@ function closeModal() {
 function openOrderForm() {
   closeModal();
 }
+  backdrop.classList.remove('is-hidden');
+  document.body.classList.add('no-scroll');
+  form.reset();
+  clearAllErrors();
+  form.elements.email.focus();
 
 async function fetchFurnitureAndRenderModal() {
   try {
@@ -38,9 +43,9 @@ dimensionsEl.textContent = `Розміри: ${furniture.sizes}`;
 dimensionsEl.classList.add('dimensions-style');
 
 
-    const mainImage = document.querySelector('.main-image');
-    mainImage.src = furniture.images[0];
-    mainImage.alt = furniture.name;
+const mainImage = document.querySelector('.main-image');
+mainImage.src = furniture.images[0];
+mainImage.alt = furniture.name;
 
 const thumbsContainer = document.querySelector('.thumbs');
 thumbsContainer.innerHTML = '';
