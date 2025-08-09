@@ -18,20 +18,24 @@ const loadMoreBtn = document.querySelector('.load-more-btn');
 
 let allProducts = [];
 let visibleProducts = [];
-let currentCategory = null;
+let currentCategoryId = null;
 let perPage = 8;
 
+let allCategories = [];
+
 async function fetchCategories() {
-    try {
-        showLoader();
-        const res = await fetch(`${API_BASE}/categories`);
-        const data = await res.json();
-        renderCategories(data);
-    } catch (error) {
-        console.error('Помилка завантаження', error);
-    } finally {
-        hideLoader();
-    }
+  try {
+    showLoader();
+    const res = await fetch(`${API_BASE}/categories`);
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+    const data = await res.json();
+    allCategories = data;
+    renderCategories(data);
+  } catch (error) {
+    console.error('Помилка завантаження категорій', error);
+  } finally {
+    hideLoader();
+  }
 }
 
 function renderCategories(categories) {
@@ -53,91 +57,106 @@ function renderCategories(categories) {
   "Декор та аксесуари": '../img/furniture-img/curated.jpg',
   };
 
-  const allBtn = document.createElement('button');
+  const allBtn = document.createElement('li');
   allBtn.classList.add('category-button');
+  allBtn.dataset.categoryId = '';
   allBtn.innerHTML = `
     <img src="${categoryImg['Всі товари']}" alt="Всі товари" />
     <span>Всі товари</span>
   `;
   allBtn.classList.add('active');
-  allBtn.addEventListener('click', () => handleCategoryClick(null));
+  allBtn.addEventListener('click', () => handleCategoryClick(''));
   categoriesContainer.appendChild(allBtn);
 
   categories.forEach(category => {
-    const btn = document.createElement('button');
-    btn.classList.add('category-button');
+  const btn = document.createElement('li');
+  btn.classList.add('category-button');
+  btn.dataset.categoryId = category._id;
 
-    const imgSrc = categoryImg[category.name];
+  const imgSrc = categoryImg[category.name];
 
-btn.classList.add('category-button');
-btn.innerHTML = `
-  <img src="${imgSrc}" alt="${category.name}" />
-  <span>${category.name}</span>
-`;
+  btn.innerHTML = `
+    <img src="${imgSrc}" alt="${category.name}" />
+    <span>${category.name}</span>
+  `;
 
-    btn.addEventListener('click', () => handleCategoryClick(category.name));
-    categoriesContainer.appendChild(btn);
-  });
+  btn.addEventListener('click', () => handleCategoryClick(category._id));
+  categoriesContainer.appendChild(btn);
+});
 }
 
+function handleCategoryClick(categoryId) {
+  currentCategoryId = categoryId || null;
+  visibleProducts = [];
 
-function handleCategoryClick(category) {
-    currentCategory = category; 
-    visibleProducts = [];
+  const buttons = categoriesContainer.querySelectorAll('li');
+  buttons.forEach(btn => {
+    if (btn.dataset.categoryId === String(categoryId)) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
 
-    const buttons = categoriesContainer.querySelectorAll('button');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.textContent === (category || 'Всі товари')) {
-            btn.classList.add('active');
-        }
-    });
-    showFilteredProducts();
+  showFilteredProducts();
 }
 
 async function fetchProducts() {
-    try {
-        showLoader();
-        const res = await fetch (`${API_BASE}/furnitures`);
-        const data = await res.json();
-        console.log(data);
+  try {
+    showLoader();
 
-        const products = data?.furnitures;
+    const perPage = 10;
+    let page = 1;
+    let allFetched = [];
+    let totalPages = 8;
 
-        if (!Array.isArray(products)) {
-            throw new Error();
-        }
+    do {
+      const res = await fetch(`${API_BASE}/furnitures?page=${page}&limit=${perPage}`);
+      const data = await res.json();
 
-        allProducts = products;
-        showFilteredProducts();
-    } catch (error) {
-        console.error('Помилка завантаження товарів', error.message || error);
-    } finally {
-        hideLoader();
-    }
+      if (!Array.isArray(data.furnitures)) throw new Error('Неправильна відповідь API');
+
+      allFetched = allFetched.concat(data.furnitures);
+
+      if (page === 8 && data.total) {
+        totalPages = Math.ceil(data.total / perPage);
+      }
+
+      page++;
+    } while (page <= totalPages);
+
+    allProducts = allFetched;
+    showFilteredProducts();
+  } catch (error) {
+    console.error('Помилка завантаження товарів:', error);
+  } finally {
+    hideLoader();
+  }
 }
 
 function showFilteredProducts() {
-    furnitureList.innerHTML = '';
-    visibleProducts = [];
+  furnitureList.innerHTML = '';
+  visibleProducts = [];
 
-    const filtered = currentCategory ? allProducts.filter(p => p.category?.name === currentCategory) : allProducts;
+  if (!Array.isArray(allProducts)) {
+    console.error('Дані не є масивом:', allProducts);
+    furnitureList.innerHTML = 'Помилка завантаження';
+    loadMoreBtn.style.display = 'none';
+    return;
+  }
 
-    if (!Array.isArray(allProducts)) {
-        console.error(allProducts);
-        furnitureList.innerHTML = 'Помилка завантаження';
-        loadMoreBtn.style.display = 'none';
-        return;
-    }
+  const filtered = currentCategoryId
+    ? allProducts.filter(p => String(p.category?._id) === String(currentCategoryId))
+    : allProducts;
 
-    if (filtered.length === 0) {
-        furnitureList.innerHTML = 'Товарів не знайдено';
-        loadMoreBtn.style.display = 'none';
-        return;
-    }
+  if (filtered.length === 0) {
+    furnitureList.innerHTML = 'Товарів не знайдено';
+    loadMoreBtn.style.display = 'none';
+    return;
+  }
 
-    loadMoreBtn.style.display = 'block';
-    loadNextBatch(filtered);
+  loadMoreBtn.style.display = 'block';
+  loadNextBatch(filtered);
 }
 
 function loadNextBatch(filteredList) {
@@ -169,8 +188,10 @@ function loadNextBatch(filteredList) {
 }
 
 loadMoreBtn.addEventListener('click', () => {
-    const filtered = currentCategory ? allProducts.filter(p => p.category.name === currentCategory) : allProducts;
-    loadNextBatch(filtered);
+  const filtered = currentCategoryId
+    ? allProducts.filter(p => p.category?._id === currentCategoryId)
+    : allProducts;
+  loadNextBatch(filtered);
 });
 
 furnitureList.addEventListener('click', async (e) => {
