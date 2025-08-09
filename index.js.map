@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.js","sources":["../src/js/faq_section.js"],"sourcesContent":["\nimport Accordion from \"accordion-js\";\n \n\nnew Accordion('.accordion-container', {\n   duration: 400,\n  triggerClass: 'ac-trigger',\n  panelClass: 'ac-panel',\n  activeClass: 'is-active',  \n  showMultiple: false,  \n});"],"names":["Accordion"],"mappings":"svBAIA,IAAIA,EAAU,uBAAwB,CACnC,SAAU,IACX,aAAc,aACd,WAAY,WACZ,YAAa,YACb,aAAc,EAChB,CAAC"}
