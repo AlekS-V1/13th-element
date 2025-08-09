@@ -89,7 +89,11 @@ input.white {
 }
 
 
-.order-btn :hover {
+.order-btn:hover {
+    opacity: 0.5;
+
+}
+.order-btn:focus {
     opacity: 0.5;
 
 }
