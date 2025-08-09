@@ -1,47 +1,49 @@
-const openModalBtn = document.getElementById('openModalBtn'); // button name to change accoding product modal
+
 const backdrop = document.getElementById('orderModalBackdrop');
 const closeBtn = document.getElementById('orderModalCloseBtn');
-const form = document.getElementById('orderForm');
+const orderForm = document.getElementById('orderForm');
 
-const modelId = '682f9bbf8acbdf505592ac36';
-const color = '#1212ca';
+let modelId = null;
+const COLOR = '#1212ca';
 
-// Відкрити модалку
-openModalBtn.addEventListener('click', () => {
+function openOrderFormWithModel(id) {
+  modelId = id;
+
   backdrop.classList.remove('is-hidden');
   document.body.classList.add('no-scroll');
-  form.reset();
+  orderForm.reset();
   clearAllErrors();
-  form.elements.email.focus();
-});
+  orderForm.elements.email.focus();
+}
 
 // Закрити модалку
-function closeModal() {
+
+function closeOrderModal() {
   backdrop.classList.add('is-hidden');
   document.body.classList.remove('no-scroll');
-  form.reset();
+  orderForm.reset();
   clearAllErrors();
 }
 
-closeBtn.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', closeOrderModal);
 
 backdrop.addEventListener('click', e => {
-  if (e.target === backdrop) closeModal();
+  if (e.target === backdrop) closeOrderModal();
 });
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && !backdrop.classList.contains('is-hidden')) {
-    closeModal();
+    closeOrderModal();
   }
 });
-
 // Обробка форми
-form.addEventListener('submit', async e => {
+
+orderForm.addEventListener('submit', async e => {
   e.preventDefault();
 
-  const emailInput = form.elements.email;
-  const phoneInput = form.elements.tel;
-  const commentInput = form.elements.comment;
+  const emailInput = orderForm.elements.email;
+  const phoneInput = orderForm.elements.tel;
+  const commentInput = orderForm.elements.comment;
 
   const email = emailInput.value.trim();
   const phone = phoneInput.value.trim();
@@ -49,7 +51,8 @@ form.addEventListener('submit', async e => {
 
   clearAllErrors();
 
-  let hasError = false;
+
+let hasError = false;
 
   if (!email) {
     showError(emailInput, 'Поле Email обов’язкове');
@@ -74,11 +77,11 @@ form.addEventListener('submit', async e => {
     email,
     phone,
     modelId,
-    color,
+    color: COLOR,
     comment,
   };
 
-  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitBtn = orderForm.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Надсилання...';
   submitBtn.style.cursor = 'wait';
@@ -92,7 +95,7 @@ form.addEventListener('submit', async e => {
       position: 'topRight',
     });
 
-    closeModal();
+    closeOrderModal();
   } catch (err) {
     iziToast.error({
       title: 'Помилка',
@@ -106,8 +109,8 @@ form.addEventListener('submit', async e => {
   }
 });
 
-// ======== Функції для помилок ===========
 
+// Функції для помилок 
 function showError(input, message) {
   input.classList.add('input-error');
 
@@ -133,6 +136,6 @@ function clearError(input) {
 }
 
 function clearAllErrors() {
-  clearError(form.elements.email);
-  clearError(form.elements.tel);
+  clearError(orderForm.elements.email);
+  clearError(orderForm.elements.tel);
 }
