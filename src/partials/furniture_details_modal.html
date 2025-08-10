@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Меблевий магазин</title>
-    <link rel="stylesheet" href="css/furniture_details_modal.css" />
-  </head>
+<div class="section-furniture-modal">
   <body onload="fetchFurnitureAndRenderModal()">
-    <div class="modal-overlay" id="modal">
+    <div class="modal-overlay hidden" id="modal">
       <div class="modal-content">
         <button class="close-btn" onclick="closeModal()">×</button>
 
@@ -20,7 +13,7 @@
           <h2 class="model-name"></h2>
           <p class="category"></p>
           <p class="price"></p>
-          <div class="rating"></div>
+          <div class="rating rating-style"></div>
 
           <div class="colors">Колір</div>
           <div class="label-input">
@@ -38,4 +31,4 @@
     </div>
     <script src="js/furniture_details_modal.js"></script>
   </body>
-</html>
+</div>

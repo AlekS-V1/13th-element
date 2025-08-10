@@ -12,6 +12,27 @@ body {
 body.modal-open {
     overflow: hidden;
 }
+.hidden {
+    display: none;
+}
+.star {
+  font-size: 20px;
+  margin-right: 2px;
+  line-height: 1;
+}
+
+.star.full {
+  color: gold;
+}
+
+.star.half {
+  color: goldenrod;
+  opacity: 0.6;
+}
+
+.star.empty {
+  color: #ccc;
+}
 
 /* === Modal === */
 .modal-overlay {

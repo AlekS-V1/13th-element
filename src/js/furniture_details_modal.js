@@ -40,7 +40,7 @@ function renderFurnitureDetails(furniture) {
   document.querySelector('.price').textContent = `${furniture.price} грн`;
   document.querySelector('.price').classList.add('price-style');
 
-  document.querySelector('.rating').textContent = '★'.repeat(Math.round(furniture.rate));
+  document.querySelector('.rating').innerHTML = renderStars(furniture.rate);
   document.querySelector('.rating').classList.add('rating-style');
 
   document.querySelector('.description').textContent = furniture.description;
@@ -63,7 +63,7 @@ function renderFurnitureDetails(furniture) {
     thumbsContainer.appendChild(img);
   });
 
-  renderColorFilters(furniture); // оновлюємо кольори при зміні товару
+  renderColorFilters(furniture);
 }
 
 function renderColorFilters(furniture) {
@@ -98,4 +98,25 @@ function filterByColor() {
   } else {
     alert('Немає меблів з таким кольором');
   }
+}
+
+function renderStars(rating) {
+  const maxStars = 5;
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+  const emptyStars = maxStars - fullStars - halfStar;
+
+  let starsHTML = '';
+
+  for (let i = 0; i < fullStars; i++) {
+    starsHTML += '<span class="star full">★</span>';
+  }
+  if (halfStar) {
+    starsHTML += '<span class="star half">★</span>';
+  }
+  for (let i = 0; i < emptyStars; i++) {
+    starsHTML += '<span class="star empty">☆</span>';
+  }
+
+  return starsHTML;
 }
