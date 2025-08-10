@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import spritePath from "../img/sprite.svg";
 import 'loaders.css/loaders.min.css';
 
 import Swiper from 'swiper';
@@ -73,9 +73,9 @@ function createStarRating(rate) {
       <div class="star-container">
         ${[...Array(5)].map(() => `
           <div class="star star-svg">
-            <svg class="star-empty"><use xlink:href="./img/sprite.svg#star-empty"></use></svg>
-            <svg class="star-half"><use xlink:href="./img/sprite.svg#star-half"></use></svg>
-            <svg class="star-filled"><use xlink:href="./img/sprite.svg#star-filled"></use></svg>
+            <svg class="star-empty"><use xlink:href="${spritePath}#star-empty"></use></svg>
+            <svg class="star-half"><use xlink:href="${spritePath}#star-half"></use></svg>
+            <svg class="star-filled"><use xlink:href="${spritePath}#star-filled"></use></svg>
           </div>
         `).join('')}
       </div>
