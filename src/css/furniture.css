@@ -25,18 +25,6 @@
   border-radius: 64px;
 }
 
-.color-common {
-  background-color: #c7c3bb;
-}
-
-.color-light {
-  background-color: #c7aa80;
-}
-
-.color-dark {
-  background-color: #201a19;
-}
-
 .categories-filter {
   display: flex;
   flex-wrap: wrap;

@@ -166,14 +166,14 @@ function loadNextBatch(filteredList) {
     nextProducts.forEach(product => {
         const li = document.createElement('li');
         li.classList.add('furniture-card');
+
+        const colorCircles = (product.color || []).map(color => `<span class="set" style="background-color: ${color};"></span>`).join('');
         li.innerHTML = `
             <img src="${product.images[0]}" alt="${product.name}" />
             <div class="info">
                 <h3 class="title">${product.name}</h3>
                 <div class="color-container">
-                    <span class="set color-common"> </span>
-                    <span class="set color-light"> </span>
-                    <span class="set color-dark"> </span>
+                    ${colorCircles}
                     </div>
                 <p class="price">${product.price} грн</p>
                 <button class="details-btn" data-id="${product._id}">Детальніше</button>
