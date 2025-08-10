@@ -11,6 +11,13 @@ function openModal() {
   document.body.classList.add('modal-open');
 }
 
+document.querySelector('.modal-overlay').addEventListener('click', function (e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
+
+
 function closeModal() {
   const modalContainer = document.querySelector('.modal-furniture-deteils');
   modalContainer.classList.add('is-hidden');
