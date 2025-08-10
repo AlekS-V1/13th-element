@@ -1,14 +1,28 @@
 let allFurnitures = [];
 
+// function closeModal() {
+//   document.getElementById('modal').style.display = 'none';
+//   document.body.classList.remove('modal-open');
+// }
+
 function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+  const modalContainer = document.querySelector('.modal-furniture-deteils');
+  modalContainer.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
 }
 
+
+// function openModal() {
+//   document.getElementById('modal').style.display = 'flex';
+//   document.body.classList.add('modal-open');
+// }
+
 function openModal() {
-  document.getElementById('modal').style.display = 'flex';
+  const modalContainer = document.querySelector('.modal-furniture-deteils');
+  modalContainer.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 }
+
 
 function openOrderForm() {
   closeModal();
