@@ -62,32 +62,22 @@ function updateNavButtons() {
 
 // === Create Star Rating ===
 
+
 function createStarRating(rate) {
   const roundedRate = Math.round(rate * 2) / 2;
-  const fullStars = Math.floor(roundedRate);
-  const hasHalf = roundedRate % 1 !== 0;
-
+  const valueClass = `value-${Math.floor(roundedRate)}`;
+  const halfClass = roundedRate % 1 !== 0 ? 'half' : '';
+  
   return `
-    <div class="rating rating-static rating-small value-${fullStars} ${
-    hasHalf ? 'half' : ''
-  } star-icon">
+    <div class="rating rating-small rating-static ${valueClass} ${halfClass} star-svg">
       <div class="star-container">
-        ${Array.from(
-          { length: 5 },
-          () => `
-          <div class="star">
-            <svg class="star-empty">
-              <use href="./img/feedback/star-rating_icons.svg#star-empty"></use>
-            </svg>
-            <svg class="star-half">
-              <use href="./img/feedback/star-rating_icons.svg#star-half"></use>
-            </svg>
-            <svg class="star-filled">
-              <use href="./img/feedback/star-rating_icons.svg#star-filled"></use>
-            </svg>
+        ${[...Array(5)].map(() => `
+          <div class="star star-svg">
+            <svg class="star-empty"><use xlink:href="./img/sprite.svg#star-empty"></use></svg>
+            <svg class="star-half"><use xlink:href="./img/sprite.svg#star-half"></use></svg>
+            <svg class="star-filled"><use xlink:href="./img/sprite.svg#star-filled"></use></svg>
           </div>
-        `
-        ).join('')}
+        `).join('')}
       </div>
     </div>
   `;
