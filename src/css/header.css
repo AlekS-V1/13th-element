@@ -29,19 +29,33 @@ body {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-}
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 160%;
+    color: #080C09;
 
-.shopping-btn,
-.join-btn {
-    background-color: #6B0609;
-    color: white;
-    border: none;
-    border-radius: 100px;
-    padding: 10px 24px;
-    font-size: 16px;
-    cursor: pointer;
 }
-
+        .shopping-btn-mobile {
+            border-radius: 100px;
+            padding: 8px 20px;
+            width: 335px;
+            height: 42px;
+            margin-top: 32px;
+            box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+            background: #6B0609;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 160%;
+            color: white;
+        }
+        .shopping-btn-mobile :hover,
+        :focus {
+            box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+            background:#6B0609;;
+            opacity: 0.5;
+        }
 .burger-btn {
     display: none;
     font-size: 24px;
@@ -81,12 +95,13 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    margin: 18px 18px;
 }
 
 .nav-mobile {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
     margin-top: 48px;
 }
 
@@ -94,24 +109,40 @@ body {
     text-decoration: none;
     color: #333;
     font-size: 18px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 160%;
+    color: var(--color-scheme-1-text);
 }
 
 /* === Мобільні пристрої (до 480px) === */
 @media (max-width: 480px) {
+    .shopping-btn-mobile {
+    width: 335px;
+    height: 42px;}
+    
+    .logo-mobile 
+    {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    padding-right: 18px;
+    } 
+
+
     .nav-desktop {
         display: none;
     }
-
     .burger-btn {
         display: block;
     }
 
+
     .shopping-btn {
         display: none;
-    }
-
-    .join-btn {
-        display: block;
+       
     }
 
     .form-container {
@@ -127,12 +158,25 @@ body {
 
 /* === Планшети (481px – 768px) === */
 @media (min-width: 481px) and (max-width: 768px) {
+        .logo-mobile {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        
+            .shopping-btn-mobile {
+                width: 185px;
+                height: 42px;
+                margin: 0 auto;
+            }
+
     .nav-desktop {
         display: none;
     }
     .nav-mobile {
          justify-content: flex-end;
          align-items: flex-end;
+         margin-bottom: 32px;
            }
     .burger-btn {
         display: block;
@@ -147,13 +191,20 @@ body {
     }
 
     .form-container {
-        width: 50%;
+        width: 334px;
+        height: 100vh;
         padding: 32px;
     }
 }
 
 /* === Десктопи (769px і більше) === */
 @media (min-width: 769px) {
+    .shopping-btn-mobile{
+    width: 175px;
+    height: 42px;
+    margin-right: 25px;
+
+    }
     .burger-btn {
         display: none;
     }
@@ -162,15 +213,33 @@ body {
         align-items: flex-end;
                 }
     .shopping-btn {
-        display: inline-block;
+    display: inline-block;
+    border-radius: 100px;
+    padding: 8px 20px;
+    width: 179px;
+    height: 42px;
+    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+    background:#6B0609;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color:#FFFFFF;
     }
+    .shopping-btn:hover,
+    :focus {
+    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+    background: #6B0609;
+    opacity: 0.5;}
 
     .join-btn {
         display: block
     }
 
-    .form-container {
-        width: 50%;
+   .form-container {
+        width: 334px;
+        height: 100vh;
         padding: 32px;
     }
-}
+
+    }
