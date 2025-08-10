@@ -65,77 +65,19 @@ function updateNavButtons() {
 
 function createStarRating(rate) {
   const roundedRate = Math.round(rate * 2) / 2;
-  const fullStars = Math.floor(roundedRate);
-  const hasHalf = roundedRate % 1 !== 0;
-
-  const starFilled = `
-    <svg class="star-icon" id="star-filled" viewBox="0 0 34 32" >
-            <title>star-filled</title>
-            <path class="path-star-filled"
-                  d="M16.941 25.621l10.179 6.144-2.701-11.579 8.993-7.791-11.842-1.005-4.628-10.92-4.628 10.92-11.842 1.005 8.993 7.791-2.701 11.579z" fill="#000000"/>
-    </svg>
-  `;
-  const starHalf = `
-    <svg viewBox="0 0 24 24" width="24" height="24">
-  <defs>
-    <clipPath id="left-half">
-      <rect x="0" y="0" width="12" height="24" />
-    </clipPath>
-    <clipPath id="right-half">
-      <rect x="12" y="0" width="12" height="24" />
-    </clipPath>
-  </defs>
-
-  <!-- Ліва половина — заповнена -->
-  <path
-    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 
-       9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-    fill="#000000"
-    stroke="#000000"
-    stroke-width="2"
-    clip-path="url(#left-half)"
-  />
-
-  <!-- Права половина — тільки контур -->
-  <path
-    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 
-       9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-    fill="none"
-    stroke="#000000"
-    stroke-width="2"
-    clip-path="url(#right-half)"
-  />
-</svg>
-  `;
-
-  const starEmpty = `
-    <svg viewBox="0 0 24 24" width="24" height="24">
-  <path
-    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 
-       9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-    fill="none"
-    stroke="#000000"
-    stroke-width="2"
-  />
-</svg>
-  `;
-
-  let starsMarkup = '';
-
-  for (let i = 0; i < 5; i++) {
-    if (i < fullStars) {
-      starsMarkup += `<div class="star">${starFilled}</div>`;
-    } else if (i === fullStars && hasHalf) {
-      starsMarkup += `<div class="star">${starHalf}</div>`;
-    } else {
-      starsMarkup += `<div class="star">${starEmpty}</div>`;
-    }
-  }
-
+  const valueClass = `value-${Math.floor(roundedRate)}`;
+  const halfClass = roundedRate % 1 !== 0 ? 'half' : '';
+  
   return `
-    <div class="rating rating-static rating-small star-icon">
+    <div class="rating rating-small rating-static ${valueClass} ${halfClass} star-svg">
       <div class="star-container">
-        ${starsMarkup}
+        ${[...Array(5)].map(() => `
+          <div class="star star-svg">
+            <svg class="star-empty"><use xlink:href="./img/sprite.svg#star-empty"></use></svg>
+            <svg class="star-half"><use xlink:href="./img/sprite.svg#star-half"></use></svg>
+            <svg class="star-filled"><use xlink:href="./img/sprite.svg#star-filled"></use></svg>
+          </div>
+        `).join('')}
       </div>
     </div>
   `;
