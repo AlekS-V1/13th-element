@@ -1,3 +1,46 @@
-<section class="about-us" id="about-us">
-  <div class="container">about-us</div>
+<section class="about" id="about-us">
+  <div class="container about-container">
+    <div class="about-title-wrap">
+      <h2 class="about-title">Про Меблерію</h2>
+      <p class="about-text">
+        У Меблерії ми прагнемо створювати затишок та функціональність у кожному
+        домі. Наша місія - пропонувати високоякісні меблі, що поєднують у собі
+        сучасний дизайн, довговічність та доступність. Ми віримо, що ідеальний
+        інтер'єр починається з правильних меблів.
+      </p>
+    </div>
+    <div class="about-img-wrapper">
+      <picture>
+        <source
+          srcset="
+            ./img/about-as/about-as-desktop@1x.webp 1x,
+            ./img/about-as/about-as-desktop@2x.webp 2x
+          "
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="
+            ./img/about-as/about-as-tablet@1x.webp 1x,
+            ./img/about-as/about-as-tablet@1x.webp 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./img/about-as/about-as-mobile@1x.webp 1x,
+            ./img/about-as/about-as-mobile@1x.webp 2x
+          "
+          media="(min-width: 320px)"
+        />
+        <img
+          src="./img/about-as/about-as-desktop@1x.webp"
+          alt="Команда Меблерії"
+          loading="lazy"
+          class="about-img"
+          width="647"
+          height="436"
+        />
+      </picture>
+    </div>
+  </div>
 </section>
