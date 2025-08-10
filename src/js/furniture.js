@@ -42,19 +42,19 @@ function renderCategories(categories) {
   categoriesContainer.innerHTML = '';
 
   const categoryImg = {
-  "Всі товари": '../img/furniture-img/stylish.jpg',
-  "М'які меблі": '../img/furniture-img/modern.jpg',
-  "Шафи та системи зберігання": '../img/furniture-img/sleek.jpg',
-  "Ліжка та матраци": '../img/furniture-img/queen.jpg',
-  "Столи": '../img/furniture-img/oak.jpg',
-  "Стільці та табурети": '../img/furniture-img/set.jpg',
-  "Кухні": '../img/furniture-img/kitchen.jpg',
-  "Меблі для дитячої": '../img/furniture-img/bright.jpg',
-  "Меблі для офісу": '../img/furniture-img/home.jpg',
-  "Меблі для передпокою": '../img/furniture-img/entryway.jpg',
-  "Меблі для ванної кімнати": '../img/furniture-img/contemporary.jpg',
-  "Садові та вуличні меблі": '../img/furniture-img/cozy.jpg',
-  "Декор та аксесуари": '../img/furniture-img/curated.jpg',
+  "Всі товари": './img/furniture-img/stylish.jpg',
+  "М'які меблі": './img/furniture-img/modern.jpg',
+  "Шафи та системи зберігання": './img/furniture-img/sleek.jpg',
+  "Ліжка та матраци": './img/furniture-img/queen.jpg',
+  "Столи": './img/furniture-img/oak.jpg',
+  "Стільці та табурети": './img/furniture-img/set.jpg',
+  "Кухні": './img/furniture-img/kitchen.jpg',
+  "Меблі для дитячої": './img/furniture-img/bright.jpg',
+  "Меблі для офісу": './img/furniture-img/home.jpg',
+  "Меблі для передпокою": './img/furniture-img/entryway.jpg',
+  "Меблі для ванної кімнати": './img/furniture-img/contemporary.jpg',
+  "Садові та вуличні меблі": './img/furniture-img/cozy.jpg',
+  "Декор та аксесуари": './img/furniture-img/curated.jpg',
   };
 
   const allBtn = document.createElement('li');
