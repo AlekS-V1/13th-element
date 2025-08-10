@@ -81,6 +81,7 @@
       ),
       url(../img/hero/hero-bg-tablet.jpg);
     width: 100%;
+    justify-content: center;
   }
 
   @media (min-resolution: 2x) {
@@ -95,6 +96,7 @@
   }
   .hero > .container {
     margin: 0;
+    width: 768px;
   }
   .hero-text {
     width: 560px;
@@ -121,10 +123,14 @@
       ),
       url(../img/hero/hero-bg-desk.jpg);
     width: 100%;
+    justify-content: center;
   }
   .container {
     max-width: 1440px;
     padding: 0 64px;
+  }
+  .hero > .container {
+    width: 1440px;
   }
 
   @media (min-resolution: 2x) {
