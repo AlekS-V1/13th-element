@@ -1,17 +1,17 @@
 import 'loaders.css/loaders.min.css';
-import stylish from './img/furniture-img/stylish.jpg';
-import modern from './img/furniture-img/modern.jpg';
-import sleek from './img/furniture-img/sleek.jpg';
-import queen from './img/furniture-img/queen.jpg';
-import oak from './img/furniture-img/oak.jpg';
-import set from './img/furniture-img/set.jpg';
-import kitchen from './img/furniture-img/kitchen.jpg';
-import bright from './img/furniture-img/bright.jpg';
-import home from './img/furniture-img/home.jpg';
-import entryway from './img/furniture-img/entryway.jpg';
-import contemporary from './img/furniture-img/contemporary.jpg';
-import cozy from './img/furniture-img/cozy.jpg';
-import curated from './img/furniture-img/curated.jpg';
+import stylish from '../img/furniture-img/stylish.jpg';
+import modern from '../img/furniture-img/modern.jpg';
+import sleek from '../img/furniture-img/sleek.jpg';
+import queen from '../img/furniture-img/queen.jpg';
+import oak from '../img/furniture-img/oak.jpg';
+import set from '../img/furniture-img/set.jpg';
+import kitchen from '../img/furniture-img/kitchen.jpg';
+import bright from '../img/furniture-img/bright.jpg';
+import home from '../img/furniture-img/home.jpg';
+import entryway from '../img/furniture-img/entryway.jpg';
+import contemporary from '../img/furniture-img/contemporary.jpg';
+import cozy from '../img/furniture-img/cozy.jpg';
+import curated from '../img/furniture-img/curated.jpg';
 
 const loader = document.querySelector('.loader');
 
