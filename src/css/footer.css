@@ -52,6 +52,9 @@
   height: 24px;
   fill: #ffffff;
 }
+.instagram {
+  fill: #080c09;
+}
 .footer-socia-icon:hover,
 .footer-socia-icon:focus {
   opacity: 0.2;
