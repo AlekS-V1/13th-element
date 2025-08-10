@@ -1,5 +1,53 @@
-<header class="header">
-  <div class="container">
-    <nav class="nav">header</nav>
-  </div>
-</header>
+
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <a href="#" class="logo">
+          <svg class="header-logo-svg">
+            <use
+              href="/img/heder/logo_navbars.svg"
+              width="163px"
+              height="69px"
+            ></use>
+          </svg>
+        </a>
+        <nav class="nav-desktop">
+          <a href="#furniture.html">Наші меблі</a>
+          <a href="about_us.html">Про нас</a>
+          <a href="#faq_section.html">Часті питання</a>
+          <a href="#feedback_section.html">Відгуки</a>
+        </nav>
+        <button class="shopping-btn" id="scrollBtn">До покупок</button>
+        <button class="burger-btn" aria-label="Відкрити меню">☰</button>
+      </div>
+    </header>
+
+    <div class="burger-menu hidden" id="burgerMenu">
+      <div class="form-container">
+        <div class="logo-mobile">
+          <div class="header__container">
+            <a href="/index.html" class="logo">
+              <svg class="header-logo-svg">
+                <use
+                  href="/img/heder/logo_navbars.svg"
+                  width="163px"
+                  height="69px"
+                ></use>
+              </svg>
+            </a>
+            <button class="close-btn" aria-label="Закрити меню">×</button>
+          </div>
+        </div>
+        <nav class="nav-mobile">
+          <a href="#team">Наші меблі</a>
+          <a href="#about">Про нас</a>
+          <a href="#faq">Часті питання</a>
+          <a href="#reviews">Відгуки</a>
+        </nav>
+        <button class="shopping-btn-mobile">До покупок</button>
+      </div>
+    </div>
+
+    <script type="module" src="/js/header.js"></script>
+  </body>
+</html>
