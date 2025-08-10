@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Меблерія</title>
-  </head>
+
   <body>
     <header class="header">
       <div class="header__container">
         <a href="#" class="logo">
-          <img src=" " alt="Logo" />
+          <svg class="header-logo-svg">
+            <use
+              href="/img/heder/logo_navbars.svg"
+              width="163px"
+              height="69px"
+            ></use>
+          </svg>
         </a>
         <nav class="nav-desktop">
-          <a href="#team">Наша команда</a>
-          <a href="#about">Про нас</a>
-          <a href="#faq">Часті питання</a>
-          <a href="#reviews">Відгуки</a>
+          <a href="#furniture.html">Наші меблі</a>
+          <a href="about_us.html">Про нас</a>
+          <a href="#faq_section.html">Часті питання</a>
+          <a href="#feedback_section.html">Відгуки</a>
         </nav>
         <button class="shopping-btn" id="scrollBtn">До покупок</button>
         <button class="burger-btn" aria-label="Відкрити меню">☰</button>
@@ -26,10 +25,18 @@
     <div class="burger-menu hidden" id="burgerMenu">
       <div class="form-container">
         <div class="logo-mobile">
-          <a href="#" class="logo">
-            <img src="/img/Company Logo.png" alt="Logo" />
-          </a>
-          <button class="close-btn" aria-label="Закрити меню">×</button>
+          <div class="header__container">
+            <a href="/index.html" class="logo">
+              <svg class="header-logo-svg">
+                <use
+                  href="/img/heder/logo_navbars.svg"
+                  width="163px"
+                  height="69px"
+                ></use>
+              </svg>
+            </a>
+            <button class="close-btn" aria-label="Закрити меню">×</button>
+          </div>
         </div>
         <nav class="nav-mobile">
           <a href="#team">Наші меблі</a>
@@ -41,6 +48,6 @@
       </div>
     </div>
 
-    <script type="module" src="header.js"></script>
+    <script type="module" src="/js/header.js"></script>
   </body>
 </html>

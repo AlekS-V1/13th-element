@@ -1,14 +1,11 @@
 /* === Базові стилі === */
-body {
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
-}
+
 
 .header {
     background-color: #fff;
     padding: 16px 32px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     border-bottom: 1px solid #ccc;
 }
 
@@ -20,8 +17,11 @@ body {
     justify-content: space-between;
 }
 
-.logo img {
-    height: 40px;
+.header-logo-svg {
+    fill: #080C09;
+    align-items: center;
+    width: 163px;
+    height: 69px;
 }
 
 .nav-desktop a {
@@ -42,7 +42,10 @@ body {
             width: 335px;
             height: 42px;
             margin-top: 32px;
-            box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+            box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+            inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+            inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+            inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
             background: #6B0609;
             cursor: pointer;
             font-weight: 500;
@@ -52,9 +55,10 @@ body {
         }
         .shopping-btn-mobile :hover,
         :focus {
-            box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
-            background:#6B0609;;
-            opacity: 0.5;
+box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+        inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+        inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
         }
 .burger-btn {
     display: none;
@@ -81,16 +85,21 @@ body {
 }
 
 .form-container {
+    position: relative;
     background-color: white;
-    height: 100%;
-    width: 100%;
+    height: 692px;
+    width: 375px;
     padding: 32px;
     display: flex;
     flex-direction: column;
 }
 
 .close-btn {
+    position: absolute;
+    top: 50px;
+    right:  18px;
     align-self: flex-end;
+    align-items: center;
     font-size: 24px;
     background: none;
     border: none;
@@ -115,14 +124,7 @@ body {
     line-height: 160%;
     color: var(--color-scheme-1-text);
 }
-
-/* === Мобільні пристрої (до 480px) === */
-@media (max-width: 480px) {
-    .shopping-btn-mobile {
-    width: 335px;
-    height: 42px;}
-    
-    .logo-mobile 
+   .logo-mobile 
     {
     display: flex;
     align-items: center;
@@ -130,7 +132,6 @@ body {
     padding-top: 18px;
     padding-right: 18px;
     } 
-
 
     .nav-desktop {
         display: none;
@@ -154,10 +155,8 @@ body {
         justify-content: center;
         align-items: center;
     }
-}
-
 /* === Планшети (481px – 768px) === */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 768px) {
         .logo-mobile {
                 display: flex;
                 align-items: center;
@@ -191,14 +190,17 @@ body {
     }
 
     .form-container {
-        width: 334px;
+        width: 50%;
         height: 100vh;
         padding: 32px;
     }
 }
 
 /* === Десктопи (769px і більше) === */
-@media (min-width: 769px) {
+@media only screen and (min-width: 1440px) {
+    .nav-desktop{
+        display: inline;
+    }
     .shopping-btn-mobile{
     width: 175px;
     height: 42px;
@@ -218,7 +220,10 @@ body {
     padding: 8px 20px;
     width: 179px;
     height: 42px;
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+            inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+            inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+            inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
     background:#6B0609;
     font-family: var(--font-family);
     font-weight: 500;
@@ -228,7 +233,10 @@ body {
     }
     .shopping-btn:hover,
     :focus {
-    box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px var(--opacity-neutral-darkest-15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 var(--opacity-white-5);
+    box-shadow: 0 1px 2px 0 rgba(8, 12, 9, 0.05),
+            inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(8, 12, 9, 0.15),
+            inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+            inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
     background: #6B0609;
     opacity: 0.5;}
 
@@ -237,9 +245,20 @@ body {
     }
 
    .form-container {
-        width: 334px;
+        width: 50%;
         height: 100vh;
         padding: 32px;
     }
-
+        .nav-desktop a {
+            margin: 0 16px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 160%;
+            color: #080C09;
+    
+        }
     }
