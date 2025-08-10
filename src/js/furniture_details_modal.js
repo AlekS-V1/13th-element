@@ -1,44 +1,14 @@
 let allFurnitures = [];
 
-// function closeModal() {
-//   document.getElementById('modal').style.display = 'none';
-//   document.body.classList.remove('modal-open');
-// }
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
 
 function openModal() {
-  const modalContainer = document.querySelector('.modal-furniture-deteils');
-  modalContainer.classList.remove('is-hidden');
+  document.getElementById('modal').style.display = 'flex';
   document.body.classList.add('modal-open');
 }
-
-document.querySelector('.modal-overlay').addEventListener('click', function (e) {
-  if (e.target === this) {
-    closeModal();
-  }
-});
-
-
-function closeModal() {
-  const modalContainer = document.querySelector('.modal-furniture-deteils');
-  modalContainer.classList.add('is-hidden');
-  document.body.classList.remove('modal-open');
-}
-
-// function openModal() {
-//   document.getElementById('modal').style.display = 'flex';
-//   document.body.classList.add('modal-open');
-// }
-
-function closeModal() {
-  const modalContainer = document.querySelector('.modal-furniture-deteils');
-  modalContainer.classList.add('is-hidden');
-  document.body.classList.remove('modal-open');
-}
-
-// function openModal() {
-//   document.getElementById('modal').style.display = 'flex';
-//   document.body.classList.add('modal-open');
-// }
 
 function openOrderForm() {
   closeModal();
