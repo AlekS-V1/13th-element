@@ -5,24 +5,22 @@ let allFurnitures = [];
 //   document.body.classList.remove('modal-open');
 // }
 
-function closeModal() {
-  const modalContainer = document.querySelector('.modal-furniture-deteils');
-  modalContainer.classList.add('is-hidden');
-  document.body.classList.remove('modal-open');
-}
-
-
-// function openModal() {
-//   document.getElementById('modal').style.display = 'flex';
-//   document.body.classList.add('modal-open');
-// }
-
 function openModal() {
   const modalContainer = document.querySelector('.modal-furniture-deteils');
   modalContainer.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
 }
 
+function closeModal() {
+  const modalContainer = document.querySelector('.modal-furniture-deteils');
+  modalContainer.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+}
+
+// function openModal() {
+//   document.getElementById('modal').style.display = 'flex';
+//   document.body.classList.add('modal-open');
+// }
 
 function openOrderForm() {
   closeModal();
