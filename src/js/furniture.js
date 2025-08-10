@@ -1,4 +1,17 @@
 import 'loaders.css/loaders.min.css';
+import stylish from './img/furniture-img/stylish.jpg';
+import modern from './img/furniture-img/modern.jpg';
+import sleek from './img/furniture-img/sleek.jpg';
+import queen from './img/furniture-img/queen.jpg';
+import oak from './img/furniture-img/oak.jpg';
+import set from './img/furniture-img/set.jpg';
+import kitchen from './img/furniture-img/kitchen.jpg';
+import bright from './img/furniture-img/bright.jpg';
+import home from './img/furniture-img/home.jpg';
+import entryway from './img/furniture-img/entryway.jpg';
+import contemporary from './img/furniture-img/contemporary.jpg';
+import cozy from './img/furniture-img/cozy.jpg';
+import curated from './img/furniture-img/curated.jpg';
 
 const loader = document.querySelector('.loader');
 
@@ -42,20 +55,20 @@ function renderCategories(categories) {
   categoriesContainer.innerHTML = '';
 
   const categoryImg = {
-  "Всі товари": './img/furniture-img/stylish.jpg',
-  "М'які меблі": './img/furniture-img/modern.jpg',
-  "Шафи та системи зберігання": './img/furniture-img/sleek.jpg',
-  "Ліжка та матраци": './img/furniture-img/queen.jpg',
-  "Столи": './img/furniture-img/oak.jpg',
-  "Стільці та табурети": './img/furniture-img/set.jpg',
-  "Кухні": './img/furniture-img/kitchen.jpg',
-  "Меблі для дитячої": './img/furniture-img/bright.jpg',
-  "Меблі для офісу": './img/furniture-img/home.jpg',
-  "Меблі для передпокою": './img/furniture-img/entryway.jpg',
-  "Меблі для ванної кімнати": './img/furniture-img/contemporary.jpg',
-  "Садові та вуличні меблі": './img/furniture-img/cozy.jpg',
-  "Декор та аксесуари": './img/furniture-img/curated.jpg',
-  };
+  "Всі товари": stylish,
+  "М'які меблі": modern,
+  "Шафи та системи зберігання": sleek,
+  "Ліжка та матраци": queen,
+  "Столи": oak,
+  "Стільці та табурети": set,
+  "Кухні": kitchen,
+  "Меблі для дитячої": bright,
+  "Меблі для офісу": home,
+  "Меблі для передпокою": entryway,
+  "Меблі для ванної кімнати": contemporary,
+  "Садові та вуличні меблі": cozy,
+  "Декор та аксесуари": curated,
+};
 
   const allBtn = document.createElement('li');
   allBtn.classList.add('category-button');
