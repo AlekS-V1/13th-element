@@ -3,8 +3,13 @@ window.addEventListener('load', fetchFurnitureAndRenderModal);
 let allFurnitures = [];
 
 function closeModal() {
-  document.getElementById('modal').style.display = 'none';
-  document.body.classList.remove('modal-open');
+  // document.getElementById('modal').style.display = 'none';
+  // document.body.classList.remove('modal-open');
+document.querySelectorAll('.modal-close').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.modal').classList.remove('active');
+  });
+});
 }
 
 function openModal() {
