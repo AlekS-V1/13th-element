@@ -1,5 +1,5 @@
  <!-- МОДАЛЬНЕ ВІКНО -->
-    <div class="modal-backdrop is-hidden" id="orderModalBackdrop">
+    <div class="modal-backdrop " id="orderModalBackdrop">
       <div class="modal" id="orderModal">
  <button class="modal-close" id="orderModalCloseBtn" type="button" aria-label="Закрити модальне вікно">
         <svg class="modal-close-icon" height="32" width="32">
@@ -12,15 +12,18 @@
             Email*
             <input
               class="form-input"
-              type="email"
               name="email"
+              type="email"
+              id="user-email"
               placeholder="example@mail.com"
+              autocomplete="email"
               required
-              autofocus
             />
           </label>
+   
+          
           <label class="form-label">
-            Телефон*
+            Телефон* 
             <input
               class="form-input"
               type="tel"
@@ -29,6 +32,7 @@
               required
             />
           </label>
+         
           <label class="form-label">
             Коментар
             <textarea class="form-textarea" name="comment" rows="6" placeholder="Type your message..."></textarea>

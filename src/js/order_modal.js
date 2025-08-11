@@ -3,12 +3,13 @@ import 'izitoast/dist/css/iziToast.min.css';
 import 'loaders.css/loaders.min.css';
 
 const backdrop = document.getElementById('orderModalBackdrop');  // Фон модального вікна
+const openOrderForm = document.querySelector('.order-btn'); // Кнопка Перейти до замовлення Product order
 const closeBtn = document.getElementById('orderModalCloseBtn');  // Кнопка закриття модалки
 const orderForm = document.getElementById('orderForm');          // Форма замовлення
+const btnSend = document.getElementById('.submit-btn');           // Кнопка Надіслати заявку
 
 let modelId = null;                   
 const COLOR = '#1212ca';  
-
 
 const loader = document.getElementById('loader'); // лоадер
 
@@ -68,9 +69,13 @@ orderForm.addEventListener('submit', async e => {
   clearAllErrors();
 
   let hasError = false;
-
+  
   if (!email) {
     showError(emailInput, 'Поле Email обов’язкове');
+    hasError = true;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Перевірка на базовий формат email (щось@щось.домен)
+    showError(emailInput, 'Введіть коректний Email');
     hasError = true;
   }
 
