@@ -31,7 +31,7 @@ async function fetchFurnitureAndRenderModal() {
     const firstFurniture = allFurnitures[0];
     renderFurnitureDetails(firstFurniture);
     renderColorFilters(firstFurniture);
-    openModal();
+    //openModal();
   } catch (error) {
     console.error('Помилка при отриманні меблів:', error);
   }
