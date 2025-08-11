@@ -1,3 +1,5 @@
+window.addEventListener('load', fetchFurnitureAndRenderModal);
+
 let allFurnitures = [];
 
 function closeModal() {
