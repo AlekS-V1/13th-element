@@ -1,55 +1,17 @@
-<<<<<<< Updated upstream
-<div class="section-furniture-modal">
-  <body onload="fetchFurnitureAndRenderModal()">
-    <div class="modal-overlay hidden" id="modal">
-      <div class="modal-content">
-        <button class="close-btn" onclick="closeModal()">×</button>
-
-=======
-<<<<<<< HEAD
-<!-- Модальне вікно товару -->
-<div class="modal-overlay hidden" id="modal">
-  <div class="modal-content">
-    <button class="close-btn" id="modalCloseBtn">×</button>
-
-    <div class="image-gallery">
-      <img src="" alt="" class="main-image" />
-      <div class="thumbs"></div>
-    </div>
-
-    <div class="modal-details">
-      <h2 class="model-name"></h2>
-      <p class="category"></p>
-      <p class="price"></p>
-      <div class="rating rating-style"></div>
-
-      <div class="colors">Kolір</div>
-      <div class="label-input">
-        <div id="color-filters"></div>
-      </div>
-
-      <p class="description"></p>
-      <p class="dimensions"></p>
-
-      <button class="order-btn" id="orderBtn">Перейти до замовлення</button>
-    </div>
-  </div>
-</div>
-=======
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Меблевий магазин</title>
-    <link rel="stylesheet" href="css/furniture_details_modal.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body onload="fetchFurnitureAndRenderModal()">
-    <div class="modal-overlay" id="modal">
+  <body>
+    <!-- Модальне вікно -->
+    <div class="modal-overlay hidden" id="modal">
       <div class="modal-content">
-        <button class="close-btn" onclick="closeModal()">×</button>
+        <button class="close-btn" id="modalCloseBtn">×</button>
 
->>>>>>> Stashed changes
         <div class="image-gallery">
           <img src="" alt="" class="main-image" />
           <div class="thumbs"></div>
@@ -59,11 +21,7 @@
           <h2 class="model-name"></h2>
           <p class="category"></p>
           <p class="price"></p>
-<<<<<<< Updated upstream
-          <div class="rating rating-style"></div>
-=======
           <div class="rating"></div>
->>>>>>> Stashed changes
 
           <div class="colors">Колір</div>
           <div class="label-input">
@@ -73,17 +31,10 @@
           <p class="description"></p>
           <p class="dimensions"></p>
 
-          <button class="order-btn" onclick="openOrderForm()">
-            Перейти до замовлення
-          </button>
+          <button class="order-btn" id="orderBtn">Перейти до замовлення</button>
         </div>
       </div>
     </div>
-    <script src="js/furniture_details_modal.js"></script>
+    <script src="./js/main.js"></script>
   </body>
-<<<<<<< Updated upstream
-</div>
-=======
 </html>
->>>>>>> 7c36503c1a2e92da64f69b6e6c1d90fda0d539f3
->>>>>>> Stashed changes
