@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 let allFurnitures = [];
 
 function closeModal() {
@@ -120,3 +121,34 @@ function renderStars(rating) {
 
   return starsHTML;
 }
+=======
+<!-- Модальне вікно товару -->
+<div class="modal-overlay hidden" id="modal">
+  <div class="modal-content">
+    <button class="close-btn" id="modalCloseBtn">×</button>
+
+    <div class="image-gallery">
+      <img src="" alt="" class="main-image" />
+      <div class="thumbs"></div>
+    </div>
+
+    <div class="modal-details">
+      <h2 class="model-name"></h2>
+      <p class="category"></p>
+      <p class="price"></p>
+      <div class="rating rating-style"></div>
+
+      <div class="colors">Kolір</div>
+      <div class="label-input">
+        <div id="color-filters"></div>
+      </div>
+
+      <p class="description"></p>
+      <p class="dimensions"></p>
+
+      <button class="order-btn" id="orderBtn">Перейти до замовлення</button>
+    </div>
+  </div>
+</div>
+
+>>>>>>> Stashed changes
