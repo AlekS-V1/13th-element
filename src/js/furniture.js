@@ -17,7 +17,6 @@ const loadMoreBtn = document.querySelector('.load-more-btn');
 const categoriesContainer = document.querySelector('.categories-filter');
 const furnitureList = document.querySelector('.furniture-list');
 function showLoader() {
-    feature/furniture-section
     loader.classList.remove('hidden');
     loadMoreBtn.classList.add('hidden');
     loadMoreBtn.disabled = true;
