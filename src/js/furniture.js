@@ -16,11 +16,13 @@ import curated from '../img/furniture-img/curated.jpg';
 const loader = document.querySelector('.loader');
 
 function showLoader() {
-    loadMoreBtn.classList.remove('hidden');
+    loader.classList.remove('hidden');
+    loadMoreBtn.disabled = true;
 }
 
 function hideLoader() {
     loader.classList.add('hidden');
+    loadMoreBtn.disabled = false;
 }
 
 const API_BASE = 'https://furniture-store.b.goit.study/api';
@@ -48,7 +50,7 @@ async function fetchCategories() {
     console.error('Помилка завантаження категорій', error);
   } finally {
     hideLoader();
-  }
+  }   
 }
 
 function renderCategories(categories) {
@@ -111,7 +113,11 @@ function handleCategoryClick(categoryId) {
     }
   });
 
-  showFilteredProducts();
+    showLoader();
+    setTimeout(() => {
+    showFilteredProducts();
+    hideLoader();
+}, 300);
 }
 
 async function fetchProducts() {
@@ -201,10 +207,15 @@ function loadNextBatch(filteredList) {
 }
 
 loadMoreBtn.addEventListener('click', () => {
+    showLoader();
+
+    setTimeout(() => {
   const filtered = currentCategoryId
     ? allProducts.filter(p => p.category?._id === currentCategoryId)
     : allProducts;
-  loadNextBatch(filtered);
+    loadNextBatch(filtered);
+    hideLoader();
+}, 300);
 });
 
 furnitureList.addEventListener('click', async (e) => {
