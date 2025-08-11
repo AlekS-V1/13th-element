@@ -4,16 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Меблевий магазин</title>
-    <link rel="stylesheet" href="../js/furniture_details_modal.js" />
+    <link rel="stylesheet" href="/css/furniture_details_modal.css" />
   </head>
-  <body>
-    <!-- Модальне вікно -->
-    <div class="modal-overlay hidden" id="modal">
+  <body onload="fetchFurnitureAndRenderModal()">
+    <div class="modal-overlay" id="modal">
       <div class="modal-content">
-        <button class="close-btn" id="modalCloseBtn">х</button>
+        <button class="close-btn" onclick="closeModal()">×</button>
 
         <div class="image-gallery">
-          <img src="" alt="" class="main-image" />
+          <img src=" " alt="" class="main-image" />
           <div class="thumbs"></div>
         </div>
 
@@ -31,10 +30,12 @@
           <p class="description"></p>
           <p class="dimensions"></p>
 
-          <button class="order-btn" id="orderBtn">Перейти до замовлення</button>
+          <button class="order-btn" onclick="openOrderForm()">
+            Перейти до замовлення
+          </button>
         </div>
       </div>
     </div>
-    <script src="../js/furniture_details_modal.js"></script>
+    <script src="/js/furniture_details_modal.js"></script>
   </body>
 </html>
