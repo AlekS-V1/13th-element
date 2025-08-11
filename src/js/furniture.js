@@ -17,11 +17,13 @@ const loader = document.querySelector('.loader');
 
 function showLoader() {
     loader.classList.remove('hidden');
+    loadMoreBtn.classList.add('hidden');
     loadMoreBtn.disabled = true;
 }
 
 function hideLoader() {
     loader.classList.add('hidden');
+    loadMoreBtn.classList.remove('hidden');
     loadMoreBtn.disabled = false;
 }
 
