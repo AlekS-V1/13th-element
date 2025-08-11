@@ -184,7 +184,6 @@ function renderColorFilters(furniture) {
   });
 }
 
-// Заглушка для clearAllErrors — реалізуй за потреби
 function clearAllErrors() {
   const errors = document.querySelectorAll('.error-message');
   errors.forEach(err => err.textContent = '');

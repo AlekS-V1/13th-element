@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 import 'loaders.css/loaders.min.css';
 import stylish from '../img/furniture-img/stylish.jpg';
 import modern from '../img/furniture-img/modern.jpg';
@@ -227,4 +226,3 @@ furnitureList.addEventListener('click', async (e) => {
 
 fetchCategories();
 fetchProducts();
->>>>>>> Stashed changes
