@@ -6,15 +6,15 @@ const backdrop = document.getElementById('orderModalBackdrop');  // Фон мо�
 const closeBtn = document.getElementById('orderModalCloseBtn');  // Кнопка закриття модалки
 const orderForm = document.getElementById('orderForm');          // Форма замовлення
 
-let modelId = null;              
-const COLOR = '#1212ca';          
+let modelId = null;                   
+const COLOR = '#1212ca';  
+
 
 const loader = document.getElementById('loader'); // лоадер
 
 // Відкрити форму замовлення з id моделі
 function openOrderFormWithModel(id) {
   modelId = id;                   
-
   backdrop.classList.remove('is-hidden'); 
   document.body.classList.add('no-scroll'); 
   orderForm.reset();                      
@@ -61,7 +61,8 @@ orderForm.addEventListener('submit', async e => {
   const commentInput = orderForm.elements.comment;
 
   const email = emailInput.value.trim();
-  const phone = phoneInput.value.trim();
+  const phoneRaw = phoneInput.value.trim();
+  const phone = phoneRaw.replace(/\D/g, '');
   const comment = commentInput.value.trim();
 
   clearAllErrors();
@@ -75,6 +76,10 @@ orderForm.addEventListener('submit', async e => {
 
   if (!phone) {
     showError(phoneInput, 'Поле Телефон обов’язкове');
+    hasError = true;
+  } else if (phone.length !== 12 || !phone.startsWith('380')) {
+    // перевіряємо що номер у форматі 380XXXXXXXXX (12 цифр, починається з 380)
+    showError(phoneInput, 'Номер телефону має бути у форматі 380XXXXXXXXX');
     hasError = true;
   }
 
@@ -92,7 +97,7 @@ orderForm.addEventListener('submit', async e => {
   const requestBody = {
     email,
     phone,
-    modelId,
+    model: modelId,
     color: COLOR,
     comment,
   };
