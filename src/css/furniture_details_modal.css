@@ -27,6 +27,9 @@ body.modal-open {
     overflow: auto;
     z-index: 1000;
 }
+.modal-overlay.is-hidden {
+  display: none;
+}
 
 .modal-content {
     background: #fff;
