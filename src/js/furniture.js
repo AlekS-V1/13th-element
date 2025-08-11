@@ -17,12 +17,16 @@ const loadMoreBtn = document.querySelector('.load-more-btn');
 const categoriesContainer = document.querySelector('.categories-filter');
 const furnitureList = document.querySelector('.furniture-list');
 function showLoader() {
-    loader.classList.remove('hidden');  // показати лоадер
-    loadMoreBtn.classList.add('hidden'); // сховати кнопку під час завантаження
-  }
+    feature/furniture-section
+    loader.classList.remove('hidden');
+    loadMoreBtn.classList.add('hidden');
+    loadMoreBtn.disabled = true;
+}
+
 function hideLoader() {
-    loader.classList.add('hidden');// Сховати лоадер
-    loadMoreBtn.classList.remove('hidden'); // Показати кнопку "Завантажити більше"
+    loader.classList.add('hidden');
+    loadMoreBtn.classList.remove('hidden');
+    loadMoreBtn.disabled = false;
 }
 const API_BASE = 'https://furniture-store.b.goit.study/api';
 let allProducts = [];
@@ -42,7 +46,7 @@ async function fetchCategories() {
     console.error('Помилка завантаження категорій', error);
   } finally {
     hideLoader();
-  }
+  }   
 }
 function renderCategories(categories) {
   categoriesContainer.innerHTML = '';
@@ -95,7 +99,11 @@ function handleCategoryClick(categoryId) {
       btn.classList.remove('active');
     }
   });
-  showFilteredProducts();
+    showLoader();
+    setTimeout(() => {
+    showFilteredProducts();
+    hideLoader();
+}, 300);
 }
 async function fetchProducts() {
   try {
@@ -167,10 +175,15 @@ function loadNextBatch(filteredList) {
     }
 }
 loadMoreBtn.addEventListener('click', () => {
+    showLoader();
+
+    setTimeout(() => {
   const filtered = currentCategoryId
     ? allProducts.filter(p => p.category?._id === currentCategoryId)
     : allProducts;
-  loadNextBatch(filtered);
+    loadNextBatch(filtered);
+    hideLoader();
+}, 300);
 });
 furnitureList.addEventListener('click', async (e) => {
     if (e.target.classList.contains('details-btn')) {
