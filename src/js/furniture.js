@@ -225,7 +225,7 @@ furnitureList.addEventListener('click', async (e) => {
 });
 function showModal(product) {
   // Заповнюємо дані товару
-  console.log(product);
+  // console.log(product);
   
   renderFurnitureDetails(product);
 

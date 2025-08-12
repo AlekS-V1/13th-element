@@ -102,7 +102,6 @@ export function renderFurnitureDetails(furniture) {
 
   document.querySelector('.dimensions').textContent = `Розміри: ${furniture.sizes}`;
   document.querySelector('.dimensions').classList.add('dimensions-style');
-  console.log(furniture.sizes);
   
 
   const mainImage = document.querySelector('.main-image');
