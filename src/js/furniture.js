@@ -177,7 +177,7 @@ function loadNextBatch(filteredList) {
         id: product._id,        
         name: product.name,
         price: product.price,
-        size: product.size || 'Невідомо',      
+        sizes: product.sizes || 'Невідомо',      
         color: product.color || [],
         images: Array.isArray(product.images) ? product.images : [] || 'placeholder.jpg',         
         description: product.description || 'Опис недоступний',  
