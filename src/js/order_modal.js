@@ -103,6 +103,7 @@ orderForm.addEventListener('submit', async e => {
   submitBtn.style.cursor = 'wait';
 
   try {
+    console.log('Відправка заявки:', requestBody);
     const response = await fetch('https://furniture-store.b.goit.study/api/orders', {
       method: 'POST',
       headers: {
@@ -115,6 +116,9 @@ orderForm.addEventListener('submit', async e => {
       const errorData = await response.json();
       throw new Error(errorData.message || 'Не вдалося надіслати заявку');
     }
+    const result = await response.json();
+    console.log('Відповідь сервера:', result);
+
 
     iziToast.success({
       title: 'Готово',
