@@ -66,6 +66,7 @@ async function fetchFurnitureAndRenderModal() {
 }
 
 export function renderFurnitureDetails(furniture) {
+  document.querySelector('.order-btn').dataset.id = furniture.id;
   document.querySelector('.model-name').textContent = furniture.name;
   document.querySelector('.model-name').classList.add('highlight-name');
 
