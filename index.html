@@ -25,7 +25,7 @@
     <script type="module" crossorigin src="/13th-element/index.js"></script>
     <link rel="modulepreload" crossorigin href="/13th-element/assets/vendor-BQynP5co.js">
     <link rel="stylesheet" crossorigin href="/13th-element/assets/vendor-BLA7GMaI.css">
-    <link rel="stylesheet" crossorigin href="/13th-element/assets/index--V7AkFaY.css">
+    <link rel="stylesheet" crossorigin href="/13th-element/assets/index-Cl0VdbvF.css">
   </head>
 
   <body>
@@ -338,11 +338,11 @@
             Email*
             <input
               class="form-input"
-              type="email"
+              type="text"
               name="email"
+              id="user-email"
               placeholder="example@mail.com"
               required
-              autofocus
             />
           </label>
           <label class="form-label">
@@ -351,7 +351,7 @@
               class="form-input"
               type="tel"
               name="tel"
-              placeholder="+380 (099) 123 22 11"
+              placeholder="+38 (099) 123 22 11"
               required
             />
           </label>
@@ -361,6 +361,11 @@
           </label>
           <button class="submit-btn" type="submit">Надіслати заявку</button>
         </form>
+      <!-- Лоадер -->
+      <div id="loader" class="loader hidden">
+      <span class="loader-circle"></span>
+      </div>
+
       </div>
     </div>
 
