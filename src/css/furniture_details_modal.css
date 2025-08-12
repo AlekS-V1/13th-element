@@ -1,231 +1,236 @@
 /* === Reset & Base === */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
 }
 
 body.modal-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* === Modal === */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 20px;
+  z-index: 1000;
 }
 .modal-overlay.is-hidden {
   display: none;
 }
 
 .modal-content {
-    background: #fff;
-    padding: 64px 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-height: 100vh;
-    overflow-y: auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  position: relative;
+  background: #fff;
+  padding: 64px 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* === Close Button === */
 .close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* === Gallery === */
 .image-gallery {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
 }
 
 .main-image {
-    width: 100%;
-    border-radius: 8px;
+  width: 100%;
+  border-radius: 8px;
 }
 
 .thumbs {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
 }
 
 .thumbs img {
-    width: 30%;
-    border-radius: 4px;
+  width: 30%;
+  border-radius: 4px;
 }
 
 /* === Modal Details === */
 .modal-details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* === Colors === */
 .colors {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .colors label {
-    margin-right: 1rem;
-    cursor: pointer;
-    display: inline-block;
+  margin-right: 1rem;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .label-input {
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 }
 
 .color-checkbox {
-    display: none;
+  display: none;
 }
 
 .color-circle {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 4px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-.color-checkbox:checked+.color-circle {
-    border: 2px solid #333;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+.color-checkbox:checked + .color-circle {
+  border: 2px solid #333;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
-.color-checkbox+.color-circle:hover {
-    border: 2px solid #aaa;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+.color-checkbox + .color-circle:hover {
+  border: 2px solid #aaa;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
-.color-checkbox:focus+.color-circle {
-    outline: 2px dashed #9747FF;
-    outline-offset: 4px;
+.color-checkbox:focus + .color-circle {
+  outline: 2px dashed #9747ff;
+  outline-offset: 4px;
 }
 
 /* === Button === */
 .order-btn {
-    border-radius: 100px;
-    padding: 10px 24px;
-    width: 100%;
-    max-width: 310px;
-    height: 46px;
-    margin: 24px auto 44px;
-    background-color: #6B0609;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 160%;
-    color: #FFFFFF;
-    cursor: pointer;
+  border-radius: 100px;
+  padding: 10px 24px;
+  width: 100%;
+  max-width: 310px;
+  height: 46px;
+  margin: 24px auto 44px;
+  background-color: #6b0609;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .order-btn:hover,
 .order-btn:focus {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 /* === Typography === */
 .highlight-name {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
-    letter-spacing: 0.01em;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
 }
 
 .highlight-type,
 .description-style {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 160%;
-    color: #333;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: #333;
 }
 
 .price-style {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 140%;
-    letter-spacing: 0.01em;
-    color: #080C09;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  letter-spacing: 0.01em;
+  color: #080c09;
 }
 
 .rating-style {
-    font-size: 18px;
-    color: #080C09;
-    letter-spacing: 2px;
+  font-size: 18px;
+  color: #080c09;
+  letter-spacing: 2px;
 }
 
 .dimensions-style {
-    font-size: 14px;
-    color: #666;
+  font-size: 14px;
+  color: #666;
 }
-        .thumbs img {
-            width: 48%;
-        }
+.thumbs img {
+  width: 48%;
+}
 
 /* === Desktop === */
 @media (min-width: 768px) {
-    .modal-content {
-        padding: 64px;
-        gap: 2rem;
-    }
+  .modal-overlay {
+    padding: 32px;
+  }
+  .modal-content {
+    padding: 64px;
+    gap: 2rem;
+  }
 
-    .color-circle {
-        width: 32px;
-        height: 32px;
-        margin: 6px;
-    }
+  .color-circle {
+    width: 32px;
+    height: 32px;
+    margin: 6px;
+  }
 
-    .thumbs img {
-        width: 48%;
-    }
+  .thumbs img {
+    width: 48%;
+  }
 
-    .highlight-name {
-        font-size: 40px;
-    }
+  .highlight-name {
+    font-size: 40px;
+  }
 
-    .price-style {
-        font-size: 32px;
-    }
+  .price-style {
+    font-size: 32px;
+  }
 }
 
 @media (min-width: 1440px) {
-    .modal-content {
-        flex-direction: row;
-        max-width: 1090px;
-    }
+  .modal-content {
+    flex-direction: row;
+    max-width: 1090px;
+  }
 }

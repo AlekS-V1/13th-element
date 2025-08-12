@@ -1,5 +1,7 @@
 window.addEventListener('load', () => {
   fetchFurnitureAndRenderModal();
+  setupDetailsButtons();
+
 
   const closeBtn = document.querySelector('.close-btn');
   if (closeBtn) {
@@ -64,6 +66,22 @@ async function fetchFurnitureAndRenderModal() {
     console.error('Помилка при отриманні меблів:', error);
   }
 }
+function setupDetailsButtons() {
+  document.querySelectorAll('.details-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const furniture = allFurnitures.find(item => item.id === id);
+      if (furniture) {
+        renderFurnitureDetails(furniture);
+        document.getElementById('modal').classList.remove('is-hidden');
+        document.body.classList.add('modal-open');
+      } else {
+        console.warn('Меблі з таким ID не знайдено:', id);
+      }
+    });
+  });
+}
+
 
 export function renderFurnitureDetails(furniture) {
   document.querySelector('.order-btn').dataset.id = furniture.id;
