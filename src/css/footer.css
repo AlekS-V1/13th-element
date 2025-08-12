@@ -1,2 +1,101 @@
 .footer {
+  background-color: #6b0609;
+  display: flex;
+  padding-bottom: 32px;
+}
+.footer > .container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  order: 0;
+}
+.footer-logo-svg {
+  width: 228px;
+  height: 98px;
+}
+.footer-nav {
+  order: 2;
+}
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.footer-nav-link {
+  color: #ffffff;
+  font-family: var(--font-family);
+}
+.footer-nav-link:hover,
+.footer-nav-link:focus {
+  opacity: 0.5;
+}
+.footer-social-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  order: 3;
+}
+.copyright-container {
+  order: 4;
+}
+
+/* .footer-social-link {
+    
+} */
+.footer-socia-icon {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+.instagram {
+  fill: #080c09;
+}
+.footer-socia-icon:hover,
+.footer-socia-icon:focus {
+  opacity: 0.2;
+}
+
+.copyright {
+  font-family: var(--font-family);
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Footer Styles for Tablet devices */
+@media screen and (min-width: 768px) {
+  .footer-nav-list {
+    flex-direction: row;
+  }
+  .copyright {
+    font-size: 14px;
+  }
+}
+
+/*Hero Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+  .footer {
+    padding-bottom: 0;
+  }
+  .footer > .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 80px;
+  }
+  .footer-nav {
+    order: 2;
+  }
+  .footer-social-list {
+    order: 3;
+  }
+  .copyright-container {
+    order: 1;
+    width: 315px;
+  }
 }
