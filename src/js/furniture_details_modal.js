@@ -91,7 +91,7 @@ export function renderFurnitureDetails(furniture) {
   document.querySelector('.category').textContent = furniture.type;
   document.querySelector('.category').classList.add('highlight-type');
 
-  document.querySelector('.price').textContent = furniture.price;
+  document.querySelector('.price').textContent = `${furniture.price} грн`;
   document.querySelector('.price').classList.add('price-style');
 
   document.querySelector('.rating').textContent = '★'.repeat(Math.round(furniture.rate));
