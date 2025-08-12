@@ -2,19 +2,36 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import 'loaders.css/loaders.min.css';
 
-const backdrop = document.getElementById('orderModalBackdrop');  // Фон модального вікна
+const backdrop = document.getElementById('orderModalBackdrop');
+const openOrderForm = document.querySelector('.order-btn'); // Кнопка Перейти до замовлення Product order  // Фон модального вікна
 const closeBtn = document.getElementById('orderModalCloseBtn');  // Кнопка закриття модалки
 const orderForm = document.getElementById('orderForm');          // Форма замовлення
+const btnSend = document.querySelector('.submit-btn');           // Кнопка Надіслати заявку
 
 let modelId = null;              
 const COLOR = '#1212ca';          
 
 const loader = document.getElementById('loader'); // лоадер
 
+// Знайти всі кнопки "Перейти до замовлення" і додати слухачі
+document.querySelectorAll('.order-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.id; // data-id з HTML
+    if (!id) {
+      iziToast.error({
+        title: 'Помилка',
+        message: 'ID моделі не знайдено.',
+        position: 'topRight',
+      });
+      return;
+    }
+    openOrderFormWithModel(id);
+  });
+});
+
 // Відкрити форму замовлення з id моделі
 function openOrderFormWithModel(id) {
-  modelId = id;                   
-
+  modelId = String(id);                  
   backdrop.classList.remove('is-hidden'); 
   document.body.classList.add('no-scroll'); 
   orderForm.reset();                      
@@ -69,15 +86,33 @@ orderForm.addEventListener('submit', async e => {
   let hasError = false;
 
   if (!email) {
+   
     showError(emailInput, 'Поле Email обов’язкове');
+    hasError = true;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Перевірка на базовий формат email (щось@щось.домен)
+    showError(emailInput, 'Введіть коректний Email');
     hasError = true;
   }
 
   if (!phone) {
     showError(phoneInput, 'Поле Телефон обов’язкове');
     hasError = true;
+  } else if (phone.length !== 12 || !phone.startsWith('380')) {
+    // перевіряємо що номер у форматі 380XXXXXXXXX (12 цифр, починається з 380)
+    showError(phoneInput, 'Номер телефону має бути у форматі 380XXXXXXXXX');
+    hasError = true;
   }
-
+  if (!modelId || modelId === 'null' || modelId.trim() === '') {
+    iziToast.error({
+      title: 'Помилка',
+      message: 'Не вказано товар для замовлення.',
+      position: 'topRight',
+    });
+    hideLoader();
+    return;
+  }
+  
   if (hasError) {
     iziToast.error({
       title: 'Помилка',
@@ -92,7 +127,7 @@ orderForm.addEventListener('submit', async e => {
   const requestBody = {
     email,
     phone,
-    modelId,
+    modelId: String(modelId),
     color: COLOR,
     comment,
   };
