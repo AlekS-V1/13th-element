@@ -98,10 +98,15 @@ orderForm.addEventListener('submit', async e => {
   if (!phone) {
     showError(phoneInput, 'Поле Телефон обов’язкове');
     hasError = true;
-  } else if (phone.length !== 12 || !phone.startsWith('380')) {
-    // перевіряємо що номер у форматі 380XXXXXXXXX (12 цифр, починається з 380)
-    showError(phoneInput, 'Номер телефону має бути у форматі 380XXXXXXXXX');
-    hasError = true;
+  } else {
+    const phoneClean = phone.replace(/[\s-]/g, '');
+    // Перевірка формату: або +380XXXXXXXXX (13 символів, плюс +) або 380XXXXXXXXX (12 символів)
+    const validPhone = (/^\+380\d{9}$/.test(phoneClean) || /^380\d{9}$/.test(phoneClean));
+    
+    if (!validPhone) {
+      showError(phoneInput, 'Номер телефону має бути у форматі 380XXXXXXXXX або +380XXXXXXXXX');
+      hasError = true;
+    }
   }
   if (!modelId || modelId === 'null' || modelId.trim() === '') {
     iziToast.error({
