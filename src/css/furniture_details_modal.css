@@ -227,5 +227,6 @@ body.modal-open {
     .modal-content {
         flex-direction: row;
         max-width: 1090px;
+        position: relative;
     }
 }
