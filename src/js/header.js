@@ -1,8 +1,9 @@
 
 const burgerBtn = document.querySelector(".burger-btn");
 const burgerMenu = document.getElementById("burgerMenu");
-const closeBtn = document.querySelector(".close-btn");
+const closeBtn = document.querySelector(".nav-close-btn");
 const scrollBtn = document.getElementById("scrollBtn");
+const scrollBtnMob = document.getElementById("scrollBtnMob");
 
 // Відкриття меню
 burgerBtn.addEventListener("click", toggleBurgerMenu);
@@ -38,6 +39,13 @@ function closeMenu() {
 
 // Плавний скрол до секції
 scrollBtn.addEventListener("click", () => {
+  const section = document.getElementById("furniture");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+    closeMenu();
+  }
+});
+scrollBtnMob.addEventListener("click", () => {
   const section = document.getElementById("furniture");
   if (section) {
     section.scrollIntoView({ behavior: "smooth" });
