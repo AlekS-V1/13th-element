@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   fetchFurnitureAndRenderModal();
   setupDetailsButtons();
-
+  
 
   const closeBtn = document.querySelector('.close-btn');
   if (closeBtn) {
@@ -66,6 +66,7 @@ async function fetchFurnitureAndRenderModal() {
     console.error('Помилка при отриманні меблів:', error);
   }
 }
+
 function setupDetailsButtons() {
   document.querySelectorAll('.details-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -82,7 +83,6 @@ function setupDetailsButtons() {
   });
 }
 
-
 export function renderFurnitureDetails(furniture) {
   document.querySelector('.order-btn').dataset.id = furniture.id;
   document.querySelector('.model-name').textContent = furniture.name;
@@ -91,7 +91,7 @@ export function renderFurnitureDetails(furniture) {
   document.querySelector('.category').textContent = furniture.type;
   document.querySelector('.category').classList.add('highlight-type');
 
-  document.querySelector('.price').textContent = furniture.price;
+  document.querySelector('.price').textContent = `${furniture.price} грн`;
   document.querySelector('.price').classList.add('price-style');
 
   document.querySelector('.rating').textContent = '★'.repeat(Math.round(furniture.rate));

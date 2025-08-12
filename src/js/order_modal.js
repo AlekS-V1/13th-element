@@ -34,7 +34,7 @@ document.querySelectorAll('.order-btn').forEach(btn => {
 function openOrderFormWithModel(id) {
   modelId = String(id);                  
   backdrop.classList.remove('is-hidden'); 
-  document.body.classList.add('no-scroll'); 
+  document.body.classList.add('modal-open'); 
   orderForm.reset();                      
   clearAllErrors();                     
   orderForm.elements.email.focus();     
@@ -43,7 +43,7 @@ function openOrderFormWithModel(id) {
 // Закрити модальне вікно
 function closeOrderModal() {
   backdrop.classList.add('is-hidden');    
-  document.body.classList.remove('no-scroll');  
+  document.body.classList.remove('modal-open');  
   orderForm.reset();                       
   clearAllErrors();                       
 }
