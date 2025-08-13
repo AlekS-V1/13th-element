@@ -234,8 +234,9 @@ body.modal-open {
 }
 
 @media (min-width: 1440px) {
-  .modal-content {
-    flex-direction: row;
-    max-width: 1090px;
-  }
+    .modal-content {
+        flex-direction: row;
+        max-width: 1090px;
+        position: relative;
+    }
 }
