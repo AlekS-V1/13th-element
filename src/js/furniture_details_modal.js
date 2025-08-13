@@ -60,7 +60,7 @@ function openOrderForm() {
     console.warn('Backdrop модального вікна замовлення не знайдено');
   }
   const requestBody = {
-  email,
+  // email,
   phone: phone.replace(/\D/g, ''),
   modelId: selectedFurniture?._id,
   color: selectedFurniture?.color?.[0] || '#000000',
