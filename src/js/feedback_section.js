@@ -83,6 +83,7 @@ function createStarRating(rate) {
   `;
 }
 
+
 // === Create HTML Markup ===
 
 function createFeedbackMarkup(arr) {

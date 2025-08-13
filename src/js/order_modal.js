@@ -15,7 +15,7 @@ const loader = document.getElementById('loader'); // лоадер
 // Знайти всі кнопки "Перейти до замовлення" і додати слухачі
 document.querySelectorAll('.order-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    console.log(btn);
+    // console.log(btn);
     
     const id = btn.dataset.id; 
     if (!id) {
