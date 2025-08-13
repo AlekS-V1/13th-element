@@ -1,4 +1,4 @@
-# Vanilla App Template
+## Vanilla App Template
 
 Цей проект було створено за допомогою Vite.
 
@@ -6,7 +6,7 @@
 
 Над її створенням процювали:
 
-DEVELOPERS GitHab NICK SECTIONS / MODALS POSITION
+DEVELOPERS - GitHab NICK - SECTIONS / MODALS - POSITION
 
 Олександр Вакулін - AlekS-V1 - Hero, Footer / Header, Furniture Modal -
 TeamLead;
