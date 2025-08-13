@@ -51,6 +51,9 @@ function openModal() {
 document.querySelector('.order-btn')?.addEventListener('click', openOrderForm);
 
 function openOrderForm() {
+  let email = document.querySelector('[name="email"]').value;
+  let phone = document.querySelector('[name="tel"]').value;
+  let comment = document.querySelector('[name="comment"]').value;
   closeModal(); // закриває попереднє модальне вікно
   const backdrop = document.getElementById('orderModalBackdrop');
   if (backdrop) {
@@ -60,7 +63,7 @@ function openOrderForm() {
     console.warn('Backdrop модального вікна замовлення не знайдено');
   }
   const requestBody = {
-  // email,
+  email,
   phone: phone.replace(/\D/g, ''),
   modelId: selectedFurniture?._id,
   color: selectedFurniture?.color?.[0] || '#000000',
