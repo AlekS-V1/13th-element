@@ -1,5 +1,5 @@
 import axios from 'axios';
-import spritePath from "../img/sprite.svg";
+import spritePath from '../img/sprite.svg';
 import 'loaders.css/loaders.min.css';
 
 import Swiper from 'swiper';
@@ -62,22 +62,25 @@ function updateNavButtons() {
 
 // === Create Star Rating ===
 
-
 function createStarRating(rate) {
   const roundedRate = Math.round(rate * 2) / 2;
   const valueClass = `value-${Math.floor(roundedRate)}`;
   const halfClass = roundedRate % 1 !== 0 ? 'half' : '';
-  
+
   return `
-    <div class="rating rating-small rating-static ${valueClass} ${halfClass} star-svg">
+    <div class="rating rating-static ${valueClass} ${halfClass} star-svg">
       <div class="star-container">
-        ${[...Array(5)].map(() => `
+        ${[...Array(5)]
+          .map(
+            () => `
           <div class="star star-svg">
             <svg class="star-empty"><use xlink:href="${spritePath}#star-empty"></use></svg>
             <svg class="star-half"><use xlink:href="${spritePath}#star-half"></use></svg>
             <svg class="star-filled"><use xlink:href="${spritePath}#star-filled"></use></svg>
           </div>
-        `).join('')}
+        `
+          )
+          .join('')}
       </div>
     </div>
   `;

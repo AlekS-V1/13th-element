@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
   fetchFurnitureAndRenderModal();
   setupDetailsButtons();
-  
 
   const closeBtn = document.querySelector('.close-btn');
   if (closeBtn) {
@@ -16,14 +15,12 @@ window.addEventListener('load', () => {
 let allFurnitures = [];
 let selectedFurniture = null;
 
-
 export function closeModal() {
   //document.getElementById('modal').style.display = 'none';
   // document.getElementById('orderModalCloseBtn')?.addEventListener('click', () => {
   document.getElementById('modal').classList.add('is-hidden');
   document.body.classList.remove('modal-open');
-// });
-
+  // });
 }
 
 function openModal() {
@@ -42,26 +39,26 @@ function openOrderForm() {
     console.warn('Backdrop модального вікна замовлення не знайдено');
   }
   const requestBody = {
-  email,
-  phone: phone.replace(/\D/g, ''),
-  modelId: selectedFurniture?._id,
-  color: selectedFurniture?.color?.[0] || '#000000',
-  comment,
-};
-
+    email,
+    phone: phone.replace(/\D/g, ''),
+    modelId: selectedFurniture?._id,
+    color: selectedFurniture?.color?.[0] || '#000000',
+    comment,
+  };
 }
-
 
 async function fetchFurnitureAndRenderModal() {
   try {
-    const response = await fetch('https://furniture-store.b.goit.study/api/furnitures');
+    const response = await fetch(
+      'https://furniture-store.b.goit.study/api/furnitures'
+    );
     const data = await response.json();
     allFurnitures = data.furnitures;
 
     const firstFurniture = allFurnitures[0];
     renderFurnitureDetails(firstFurniture);
     renderColorFilters(firstFurniture);
-   // openModal();
+    // openModal();
   } catch (error) {
     console.error('Помилка при отриманні меблів:', error);
   }
@@ -94,25 +91,28 @@ export function renderFurnitureDetails(furniture) {
   document.querySelector('.price').textContent = `${furniture.price} грн`;
   document.querySelector('.price').classList.add('price-style');
 
-  document.querySelector('.rating').textContent = '★'.repeat(Math.round(furniture.rate));
-  document.querySelector('.rating').classList.add('rating-style');
+  document.querySelector('.modal-rating').textContent = '★'.repeat(
+    Math.round(furniture.rate)
+  );
+  document.querySelector('.modal-rating').classList.add('rating-style');
 
   document.querySelector('.description').textContent = furniture.description;
   document.querySelector('.description').classList.add('description-style');
 
-  document.querySelector('.dimensions').textContent = `Розміри: ${furniture.sizes}`;
+  document.querySelector(
+    '.dimensions'
+  ).textContent = `Розміри: ${furniture.sizes}`;
   document.querySelector('.dimensions').classList.add('dimensions-style');
   console.log(furniture.sizes);
-  
 
   const mainImage = document.querySelector('.main-image');
   if (Array.isArray(furniture.images) && furniture.images.length > 0) {
-  mainImage.src = furniture.images[0];
-  mainImage.alt = furniture.name;
-} else {
-  mainImage.src = 'default.jpg'; // або інше резервне зображення
-  mainImage.alt = 'Зображення недоступне';
-}
+    mainImage.src = furniture.images[0];
+    mainImage.alt = furniture.name;
+  } else {
+    mainImage.src = 'default.jpg'; // або інше резервне зображення
+    mainImage.alt = 'Зображення недоступне';
+  }
 
   // mainImage.src = furniture.images[0];
   // mainImage.alt = furniture.name;
@@ -121,19 +121,19 @@ export function renderFurnitureDetails(furniture) {
   thumbsContainer.innerHTML = '';
 
   if (Array.isArray(furniture.images) && furniture.images.length > 1) {
-  furniture.images.slice(1).forEach((imgUrl, index) => {
-    const img = document.createElement('img');
-    img.src = imgUrl;
-    img.alt = `${furniture.name} view ${index + 2}`;
-    img.classList.add('thumb-image');
-    thumbsContainer.appendChild(img);
-  });
-}
+    furniture.images.slice(1).forEach((imgUrl, index) => {
+      const img = document.createElement('img');
+      img.src = imgUrl;
+      img.alt = `${furniture.name} view ${index + 2}`;
+      img.classList.add('thumb-image');
+      thumbsContainer.appendChild(img);
+    });
+  }
 
   if (!Array.isArray(furniture.images) || furniture.images.length === 0) {
-  mainImage.src = 'default.jpg'; // 
-  mainImage.alt = 'Зображення недоступне';
-}
+    mainImage.src = 'default.jpg'; //
+    mainImage.alt = 'Зображення недоступне';
+  }
 
   // furniture.images.slice(1).forEach((imgUrl, index) => {
   //   const img = document.createElement('img');
@@ -145,25 +145,24 @@ export function renderFurnitureDetails(furniture) {
 
   renderColorFilters(furniture); // оновлюємо кольори при зміні товару
   selectedFurniture = furniture; // збережемо товар
-
 }
 
 function renderColorFilters(furniture) {
   const container = document.getElementById('color-filters');
   container.innerHTML = '';
 
-if (Array.isArray(furniture.color)) {
-  furniture.color.forEach(color => {
-    const label = document.createElement('label');
-    label.innerHTML = `
+  if (Array.isArray(furniture.color)) {
+    furniture.color.forEach(color => {
+      const label = document.createElement('label');
+      label.innerHTML = `
       <input type="checkbox" value="${color}" class="color-checkbox" onchange="filterByColor()" />
       <span class="color-circle" style="background:${color};"></span>
     `;
-    container.appendChild(label);
-  });
-} else {
-  console.warn('Поле color відсутнє або не є масивом:', furniture);
-}
+      container.appendChild(label);
+    });
+  } else {
+    console.warn('Поле color відсутнє або не є масивом:', furniture);
+  }
 
   // furniture.color.forEach(color => {
   //   const label = document.createElement('label');
@@ -176,8 +175,9 @@ if (Array.isArray(furniture.color)) {
 }
 
 function filterByColor() {
-  const checkedColors = Array.from(document.querySelectorAll('#color-filters input:checked'))
-    .map(input => input.value);
+  const checkedColors = Array.from(
+    document.querySelectorAll('#color-filters input:checked')
+  ).map(input => input.value);
 
   if (checkedColors.length === 0) {
     renderFurnitureDetails(allFurnitures[0]);
