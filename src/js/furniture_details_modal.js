@@ -10,9 +10,10 @@
 //     console.warn('Кнопка .close-btn не знайдена');
 //   }
 // });
-// import spritePath from "../img/sprite.svg";
+
 // import StarRating from 'css-star-rating';
 // new StarRating(document.querySelector('.modal-rating'));
+import spritePath from "../img/sprite.svg";
 
 import 'css-star-rating/css/star-rating.min.css';
 
@@ -121,9 +122,7 @@ function setupDetailsButtons() {
 // }
 
 
-
 function createStarRatingSvg(rate) {
-  const spritePath = '../img/sprite.svg'; // або імпортуй через Vite
   const maxStars = 5;
   const roundedRate = Math.round(rate * 2) / 2;
 
@@ -131,19 +130,16 @@ function createStarRatingSvg(rate) {
 
   for (let i = 1; i <= maxStars; i++) {
     if (roundedRate >= i) {
-      // Повна зірка
       starsHtml += `
         <div class="modal-star star-svg">
           <svg class="star-filled"><use xlink:href="${spritePath}#star-filled"></use></svg>
         </div>`;
     } else if (roundedRate + 0.5 === i) {
-      // Половинна зірка
       starsHtml += `
         <div class="modal-star star-svg">
           <svg class="star-half"><use xlink:href="${spritePath}#star-half"></use></svg>
         </div>`;
     } else {
-      // Порожня зірка
       starsHtml += `
         <div class="modal-star star-svg">
           <svg class="star-empty"><use xlink:href="${spritePath}#star-empty"></use></svg>
