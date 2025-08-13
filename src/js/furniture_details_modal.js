@@ -1,15 +1,32 @@
-window.addEventListener('load', () => {
-  fetchFurnitureAndRenderModal();
-  setupDetailsButtons();
+// window.addEventListener('load', () => {
+//   fetchFurnitureAndRenderModal();
+//   setupDetailsButtons();
   
 
+//   const closeBtn = document.querySelector('.close-btn');
+//   if (closeBtn) {
+//     closeBtn.addEventListener('click', closeModal);
+//   } else {
+//     console.warn('Кнопка .close-btn не знайдена');
+//   }
+// });
+// import spritePath from "../img/sprite.svg";
+// import StarRating from 'css-star-rating';
+// new StarRating(document.querySelector('.modal-rating'));
+
+import 'css-star-rating/css/star-rating.min.css';
+
+window.addEventListener('load', () => {
+  fetchFurnitureAndRenderModal();
   const closeBtn = document.querySelector('.close-btn');
   if (closeBtn) {
     closeBtn.addEventListener('click', closeModal);
-  } else {
-    console.warn('Кнопка .close-btn не знайдена');
   }
 });
+
+
+
+
 
 // document.querySelector('.close-btn').addEventListener('click', closeModal);
 
@@ -61,7 +78,7 @@ async function fetchFurnitureAndRenderModal() {
     const firstFurniture = allFurnitures[0];
     renderFurnitureDetails(firstFurniture);
     renderColorFilters(firstFurniture);
-   // openModal();
+  //  openModal();
   } catch (error) {
     console.error('Помилка при отриманні меблів:', error);
   }
@@ -83,6 +100,67 @@ function setupDetailsButtons() {
   });
 }
 
+// function createStarRating(rate) {
+//   const roundedRate = Math.round(rate * 2) / 2;
+//   const valueClass = `value-${Math.floor(roundedRate)}`;
+//   const halfClass = roundedRate % 1 !== 0 ? 'half' : '';
+  
+//   return `
+//     <div class="modal-rating rating-small rating-static ${valueClass} ${halfClass} star-svg">
+//       <div class="modal-star-container">
+//         ${[...Array(5)].map(() =>
+//           `<div class="modal-star star-svg">
+//             <svg class="star-empty"><use xlink:href="${spritePath}#star-empty"></use></svg>
+//             <svg class="star-half"><use xlink:href="${spritePath}#star-half"></use></svg>
+//             <svg class="star-filled"><use xlink:href="${spritePath}#star-filled"></use></svg>
+//           </div>
+//         `).join('')}
+//       </div>
+//     </div>
+//   `;
+// }
+
+
+
+function createStarRatingSvg(rate) {
+  const spritePath = '../img/sprite.svg'; // або імпортуй через Vite
+  const maxStars = 5;
+  const roundedRate = Math.round(rate * 2) / 2;
+
+  let starsHtml = '';
+
+  for (let i = 1; i <= maxStars; i++) {
+    if (roundedRate >= i) {
+      // Повна зірка
+      starsHtml += `
+        <div class="modal-star star-svg">
+          <svg class="star-filled"><use xlink:href="${spritePath}#star-filled"></use></svg>
+        </div>`;
+    } else if (roundedRate + 0.5 === i) {
+      // Половинна зірка
+      starsHtml += `
+        <div class="modal-star star-svg">
+          <svg class="star-half"><use xlink:href="${spritePath}#star-half"></use></svg>
+        </div>`;
+    } else {
+      // Порожня зірка
+      starsHtml += `
+        <div class="modal-star star-svg">
+          <svg class="star-empty"><use xlink:href="${spritePath}#star-empty"></use></svg>
+        </div>`;
+    }
+  }
+
+  return `
+    <div class="rating-star rating-small rating-static star-svg">
+      <div class="star-container">
+        ${starsHtml}
+      </div>
+    </div>
+  `;
+}
+
+
 export function renderFurnitureDetails(furniture) {
   document.querySelector('.order-btn').dataset.id = furniture.id;
   document.querySelector('.model-name').textContent = furniture.name;
@@ -91,11 +169,25 @@ export function renderFurnitureDetails(furniture) {
   document.querySelector('.category').textContent = furniture.type;
   document.querySelector('.category').classList.add('highlight-type');
 
-  document.querySelector('.price').textContent = `${furniture.price} грн`;
-  document.querySelector('.price').classList.add('price-style');
+  document.querySelector('.modal-price').textContent = `${furniture.price} грн`;
+  document.querySelector('.modal-price').classList.add('price-style');
 
-  document.querySelector('.rating').textContent = '★'.repeat(Math.round(furniture.rate));
-  document.querySelector('.rating').classList.add('rating-style');
+  // document.querySelector('.modal-rating').textContent = createStarRating(furniture.rate);
+
+//   const ratingEl = document.querySelector('.modal-rating');
+// if (ratingEl) {
+//   ratingEl.innerHTML = createStarRating(furniture.rate);
+//   ratingEl.classList.add('rating-style');
+// } else {
+//   console.warn('Елемент .modal-rating не знайдено');
+  // }
+  const ratingEl = document.querySelector('.modal-rating');
+if (ratingEl) {
+  ratingEl.innerHTML = createStarRatingSvg(furniture.rate);
+}
+
+
+  document.querySelector('.modal-rating').classList.add('rating-style');
 
   document.querySelector('.description').textContent = furniture.description;
   document.querySelector('.description').classList.add('description-style');
@@ -174,7 +266,7 @@ if (Array.isArray(furniture.color)) {
   // });
 }
 
-function filterByColor() {
+window.filterByColor = function() {
   const checkedColors = Array.from(document.querySelectorAll('#color-filters input:checked'))
     .map(input => input.value);
 

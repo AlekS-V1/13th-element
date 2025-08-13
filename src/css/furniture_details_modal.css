@@ -78,6 +78,11 @@ body.modal-open {
   justify-content: center;
 }
 
+.modal-star svg {
+  width: 21px;
+  height: 21px;
+}
+
 .thumbs img {
   width: 30%;
   border-radius: 4px;
@@ -184,11 +189,11 @@ body.modal-open {
   letter-spacing: 0.01em;
   color: #080c09;
 }
-
-.rating-style {
-  font-size: 18px;
-  color: #080c09;
-  letter-spacing: 2px;
+.rating-star {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 5px;
 }
 
 .dimensions-style {
