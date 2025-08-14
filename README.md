@@ -12,10 +12,9 @@
 
 | DEVELOPERS | GitHab NICK | SECTIONS / MODALS | POSITION |
 |------------|:------------:|:-----------------:|:--------|
-| Олександр Вакулін | AlekS-V1 | Hero, Footer / Header, Furniture Modal |
-TeamLead |
+| Олександр Вакулін | AlekS-V1 | Hero, Footer / Header, Furniture Modal | TeamLead |
 
-| Олена Борисенко | Olenka-12345 | Header, Furniture Modal -| Developer |
+| Олена Борисенко | Olenka-12345 | Header, Furniture Modal | Developer |
 
 | Валерія Твердовська | deviwax | Furniture List | Developer |
 
