@@ -265,22 +265,44 @@ if (Array.isArray(furniture.color)) {
   // });
 }
 
+//   filterByColor = function() {
+//   const checkedColors = Array.from(document.querySelectorAll('#color-filters input:checked'))
+//     .map(input => input.value);
+
+//   if (checkedColors.length === 0) {
+//     renderFurnitureDetails(allFurnitures[0]);
+//     return;
+//   }
+
+//   const filtered = allFurnitures.find(item =>
+//     item.color.some(c => checkedColors.includes(c))
+//   );
+
+//   if (filtered) {
+//     renderFurnitureDetails(filtered);
+//   } else {
+//     alert('Немає меблів з таким кольором');
+//   }
+// }
+
 window.filterByColor = function() {
   const checkedColors = Array.from(document.querySelectorAll('#color-filters input:checked'))
     .map(input => input.value);
 
-  if (checkedColors.length === 0) {
-    renderFurnitureDetails(allFurnitures[0]);
-    return;
-  }
-
-  const filtered = allFurnitures.find(item =>
-    item.color.some(c => checkedColors.includes(c))
-  );
-
-  if (filtered) {
-    renderFurnitureDetails(filtered);
+  if (checkedColors.length > 0) {
+    selectedFurniture.selectedColor = checkedColors[0]; // зберігаємо вибраний колір
   } else {
-    alert('Немає меблів з таким кольором');
+    selectedFurniture.selectedColor = null;
   }
+
+  // Можна оновити стиль, якщо потрібно показати вибір
+  document.querySelectorAll('.color-circle').forEach(span => {
+    const input = span.previousElementSibling;
+    if (input && input.checked) {
+      span.style.border = '2px solid #333';
+    } else {
+      span.style.border = '2px solid transparent';
+    }
+  });
 }
+
