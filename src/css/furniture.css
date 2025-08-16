@@ -23,6 +23,7 @@
   width: 25px;
   height: 25px;
   border-radius: 64px;
+  border: 1px solid #ccc;
 }
 
 .categories-filter {
