@@ -146,7 +146,6 @@
 .swiper-pagination {
   display: flex;
   justify-content: flex-start;
-  gap: 8px;
   position: static !important;
 }
 
