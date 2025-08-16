@@ -126,7 +126,7 @@ body.modal-open {
   display: inline-block;
   margin: 4px;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 2px solid #ccc;
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
