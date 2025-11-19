@@ -2,7 +2,7 @@
 
 > **Timeline:** 1 week **Team:** [13th-element](#our-team)
 
-![alt text](image.png)
+![logo team](image.png)
 
 ---
 
@@ -11,8 +11,6 @@
 **Mebleria** is a sample web page created as a collaborative team project. The
 goal was to combine modern design, usability, and teamwork into a single
 product.
-
-![Website Screenshot](image.png)
 
 ---
 
@@ -37,6 +35,52 @@ product.
 - 🪑 **Furniture filter** — browse categories with lazy loading for performance.
 - ⚡ **Fast ordering** — modal window in just a few clicks.
 - ❓ **FAQ & reviews** — help users make confident purchase decisions.
+
+---
+
+## 🏗️ Website Structure
+
+### 1️⃣ Hero Section
+
+- 🏠 Title: _“Create your perfect home”_
+- ✨ Subtitle: _“Discover a collection of stylish and comfortable furniture that
+  transforms your space.”_
+- 🎯 Purpose: attract user attention, set the brand tone (elegance +
+  functionality).
+
+### 2️⃣ Furniture Showcase
+
+- 🪑 Categories of furniture with model previews.
+- ➕ “Show more” button for lazy loading additional images.
+- 🎯 Purpose: balance between performance and user desire to see more options.
+
+### 3️⃣ About Us
+
+- 📖 Mission: create coziness and functionality in every home.
+- 🔑 Focus: modern design, durability, affordability.
+- 🎯 Purpose: build trust and brand identity.
+
+### 4️⃣ FAQ
+
+- ❓ Example questions:
+  - 🚚 How is furniture delivered?
+  - 🎨 Can I choose color or material?
+  - 🔄 Can I return the product?
+  - 🛠️ Do you provide assembly service?
+  - 💳 How can I pay?
+- 🎯 Purpose: remove barriers before purchase, provide quick answers.
+
+### 5️⃣ Customer Feedback
+
+- 💬 Block with satisfied customer reviews.
+- 🎯 Purpose: social proof, increase trust.
+
+### 6️⃣ Header & Footer
+
+- 🔝 **Header:** navigation through main sections (Furniture, About Us, FAQ,
+  Feedback).
+- 🔚 **Footer:** © 2025 Relume, contact information.
+- 🎯 Purpose: complete the page, provide access to key links.
 
 ---
 
