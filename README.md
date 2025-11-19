@@ -1,91 +1,79 @@
-### Назва проєкту:
-# Меблєрія
+# 🪑 Mebleria
 
-### термін виконання: 1 тиждень
+> **Timeline:** 1 week **Team:** [13th-element](#our-team)
 
-#### Ця веб-сторінка є зразком спільної роботи в команді.
 ![alt text](image.png)
-### наша команда: 
-# 13th-element
 
-## Над створенням проекту процювали:
+---
 
-| DEVELOPERS | GitHab NICK | SECTIONS / MODALS | POSITION |
-|------------|:------------:|:-----------------:|:--------|
-| Олександр Вакулін | AlekS-V1 | Hero, Footer / Header, Furniture Modal | TeamLead |
-| Олена Борисенко | Olenka-12345 | Header, Furniture Modal | Developer |
-| Валерія Твердовська | deviwax | Furniture List | Developer |
-| Аліна Сергієнко | Alinka-Kim | About us | Developer |
-| Олександра Набокова | a-nabokova | FAQ | Developer |
-| Вікторія Мінець | victoria-minets | Feedback | ScrumMaster |
-| Віра Кхан | ViraKhan | Order Modal | Developer |
+## 📖 Project Overview
 
+**Mebleria** is a sample web page created as a collaborative team project. The
+goal was to combine modern design, usability, and teamwork into a single
+product.
 
-## Наш проєкт це:
+![Website Screenshot](image.png)
 
-Стильний дизайн одразу сподобається тим, хто цінує красу.
+---
 
-Зручна навігація по сайту дає можливість швидко знайти потрібну інформацію.
+## 👥 Our Team
 
-Фільтр по категоріям меблів з демонстрацією моделей, за потреби завантажуючи більше зображень - ідеальний баланс інтересів користувача (бачити багато варіантів) та продуктивності сайту (без гальмування роботи).
+| 👨‍💻 Developer        |   🏷️ GitHub Nick    |          📂 Sections / Modals          | 🎯 Role     |
+| ------------------- | :-----------------: | :------------------------------------: | :---------- |
+| Oleksandr Vakulin   |    **AlekS-V1**     | Hero, Footer / Header, Furniture Modal | TeamLead    |
+| Olena Borysenko     |  **Olenka-12345**   |        Header, Furniture Modal         | Developer   |
+| Valeriia Tverdovska |     **deviwax**     |             Furniture List             | Developer   |
+| Alina Serhienko     |   **Alinka-Kim**    |                About us                | Developer   |
+| Oleksandra Nabokova |   **a-nabokova**    |                  FAQ                   | Developer   |
+| Viktoriia Minets    | **victoria-minets** |                Feedback                | ScrumMaster |
+| Vira Khan           |    **ViraKhan**     |              Order Modal               | Developer   |
 
-Швидке замовлення через модальне вікно у кілька кликів.
+---
 
-Часті питання та позитивні відгуки покупців дозволять розвіяти сумніви та наважитися на купівлю.
+## 🌟 Key Features
 
-## Як виглядає сайт для користувача
+- 🎨 **Stylish design** — appealing to those who value aesthetics.
+- 🧭 **Easy navigation** — quick access to essential information.
+- 🪑 **Furniture filter** — browse categories with lazy loading for performance.
+- ⚡ **Fast ordering** — modal window in just a few clicks.
+- ❓ **FAQ & reviews** — help users make confident purchase decisions.
 
-Знайомтесь: 
+---
 
-Наталя з Вінниці
+## 👩‍💼 Target User
 
-31 рік, менеджер з продажів, має сім’ю та паралельно вивчає психологію.
+**Natalia, 31, Sales Manager (Vinnytsia, Ukraine):**
 
-Нещодавно закінчила ремонт в новій квартирі і шукає меблі.
-В інтер’єрі любить пастельні кольори, які не тільки гарно виходять на фото для Instagram, але і знижують стрес і тривожність.
-Цінує красу і свій час, тому шукає швидке та стильне рішення.
-Для неї важливо, щоб була доставка та збірка меблів у її місті.
+- Married, studying psychology alongside her career.
+- Recently finished renovating her new apartment and is searching for furniture.
+- Prefers pastel colors that reduce stress and look great on Instagram.
+- Values beauty and time efficiency — wants quick, stylish solutions.
+- Needs delivery and assembly services in her city.
 
-## Проблеми та як ми їх вирішували
+---
 
-#### Конфлікти гілок
-Вирішували шляхом наполегливої роботи залучених учасників
+## 🛠️ Challenges & Solutions
 
-#### мало учасників 
-Враховували зацікавленість учасників  при розподілі задач. Перерозподіляли задачі, де було можливо.
+- 🔀 **Branch conflicts** — solved through persistent teamwork.
+- 👥 **Limited participants** — redistributed tasks based on interest and
+  availability.
+- 🖼️ **Image rendering issues** — fixed by adjusting file paths and rating star
+  display with team support.
 
-#### Проблеми з відображенням зображень
-Командна підтримка у чатах допомогла знайти та виправити шляхи до файлів, налаштувати відображення фото і зірочок рейтингу.
+---
 
-## Технічний стек:
+## 💻 Tech Stack
 
-HTML/CSS
+- **Frontend:** HTML, CSS, JavaScript
+- **Libraries:** loaders.css, Axios, Swiper, iziToast, css-star-rating,
+  Pagination
+- **Build Tools:** Vite, Vanilla App
 
-JavaScript
+---
 
-loaders.css
+## 🧰 Utilities
 
-Axios
-
-Swiper
-
-iziToast
-
-css-star-rating
-
-Pagination
-
-Vite
-
-Vanilla App
-
-### Utilites
-
-VSCode
-
-Figma
-
-Trello
-
-Git/GitHub
-
+- VSCode
+- Figma
+- Trello
+- Git/GitHub
